@@ -8,4 +8,4 @@ This is [Eugenio Culurciello's](https://engineering.purdue.edu/elab/html/contact
 
 You can find our e-Lab webpage at [elab/Purdue](https://engineering.purdue.edu/elab/index.html)
 
-You can find Teradeep webpage at: [teradeep/webpage](https://teradeep.com)
+You can find Teradeep webpage at: [teradeep/webpage](http://teradeep.com)
