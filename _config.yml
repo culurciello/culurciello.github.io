@@ -9,6 +9,15 @@ baseurl: "" # the subpath of your site, e.g. /blog/
 url: "https://http://culurciello.github.io/" # the base hostname & protocol for your site
 twitter_username: culurciello
 github_username:  culurciello
+facebook_username:  culurciello
+google_username:  culurciello
 
 # Build settings
 markdown: kramdown
+
+# github
+# highlighter: pygments
+# github: [Repository metadata]
+# safe: true
+# lsi: false
+# source: your top-level directory
