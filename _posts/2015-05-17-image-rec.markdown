@@ -5,10 +5,10 @@ date:   2015-05-17 09:05:21
 categories: tech
 ---
 
-Following the [Venture Beat article], that tested a few public image recognition engines on [ImageNet](http://www.image-net.org/) on the [ImageNet categories](http://image-net.org/challenges/LSVRC/2014/browse-synsets) only.
+Yesterday a [Venture Beat article] tested a few public image recognition engines on [ImageNet]. In order to provide consistent tests, they used images from the [ImageNet categories](http://image-net.org/challenges/LSVRC/2014/browse-synsets) only.
 
 
-Unfortunately ImageNet does not contain a lot of the categories of object we use and see in our everyday life, such as "person", "man", "woman", "hand", etc.
+Unfortunately [ImageNet] does not contain a lot of the categories of object we use and see in our everyday life, such as "person", "man", "woman", "hand", etc.
 
 [Teradeep] used a large private dataset of more than 10 Million images to train its image recognition engines.
 
@@ -33,3 +33,4 @@ Here is how [Clarifai] did - a great job indeed:
 [Teradeep]: http://www.teradeep.com/index.html
 [Clarifai]: http://www.clarifai.com/
 [Metamind]: https://www.metamind.io/
+[ImageNet]: http://www.image-net.org/
