@@ -5,13 +5,13 @@ date:   2015-05-17 09:05:21
 categories: tech
 ---
 
-Yesterday a [Venture Beat article] tested a few public image recognition engines on [ImageNet]. In order to provide consistent tests, they used images from the [ImageNet categories](http://image-net.org/challenges/LSVRC/2014/browse-synsets) only.
-
+Yesterday a [Venture Beat article] tested a few public image recognition engines on a popular large [ImageNet]. In order to provide consistent tests, they used images from the [ImageNet categories](http://image-net.org/challenges/LSVRC/2014/browse-synsets) only. This is because many research and evaluation image recognition out there are trained on the [ImageNet] dataset only. 
 
 Unfortunately [ImageNet] does not contain a lot of the categories of object we use and see in our everyday life, such as "person", "man", "woman", "hand", etc.
 
 [Teradeep] used a large private dataset of more than 10 Million images to train its image recognition engines.
 
+We run some of our own tests. The first is on this image: http://www.billboard.com/files/styles/promo_650/public/media/avril-lavigne-press-650.jpg
 
 
 # Here is [Teradeep] image recognition result:
