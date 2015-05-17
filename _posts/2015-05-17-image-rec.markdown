@@ -13,19 +13,28 @@ Unfortunately [ImageNet] does not contain a lot of the categories of object we u
 [Teradeep] used a large private dataset of more than 10 Million images to train its image recognition engines.
 
 
-Here is [Teradeep] image recognition:
+
+# Here is [Teradeep] image recognition result:
 ![avril-td](/assets/image-rec/Avril-td.jpg)
 
-Here is how [Metamind] did:
+Clearly it tells us right away what is the main subject in this picture.
+
+# Here is how [Metamind] did:
 ![avril-metamind](/assets/image-rec/Avril-metamind.jpg)
 
 Metamind was only trained on ImageNet, so it does not know what to do with this image.
 The hair of Avril look like a broom, the closet object that resembles the image.
 
 
-Here is how [Clarifai] did - a great job indeed:
+# Here is how [Clarifai] did:
 ![avril-clarifai](/assets/image-rec/Avril-clarifai.jpg)
 
+Better than Metamind, given they use their own dataset. But it is trying to classify the image category as "fashion", "glamour", rather than telling us what is in this picture first!
+
+# Conclusion:
+
+ImageNet categories are clearly not suited for use in practical applications.
+We could spend the day testing on tons of images, but I think this gives a good starting point.
 
 
 [Venture Beat article]: http://venturebeat.com/2015/05/16/how-stephen-wolframs-image-recognition-tool-performs-against-5-alternatives
