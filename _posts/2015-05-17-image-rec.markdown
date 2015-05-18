@@ -31,6 +31,12 @@ The hair of Avril look like a broom, the closet object that resembles the image.
 
 Better than Metamind, given they use their own dataset. But it is trying to classify the image category as "fashion", "glamour", rather than telling us what is in this picture first!
 
+# another example:
+
+![adapter-td](/assets/image-rec/adapter-td.jpg)
+![adapter-clarifai](/assets/image-rec/adapter-clarifai.jpg)
+![adapter-metamind](/assets/image-rec/adapter-metamind.jpg)
+
 # Conclusion:
 
 ImageNet categories are clearly not suited for use in practical applications.
