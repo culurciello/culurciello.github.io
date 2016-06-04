@@ -5,10 +5,9 @@ date:   2015-05-17 09:05:21
 categories: tech
 ---
 
-Deep neural networks and Deep Learning are now all the rage. And a lot of their success is careful design of the neural network architecture.
+Deep neural networks and Deep Learning are powerful and popular algorithms. And a lot of their success lays in the careful design of the neural network architecture. 
 
 I wanted to revisit the history of neural network design in the last few years and in the context of Deep Learning.
-
 
 # LeNet5
 One of the very first convolutional neural networks, and what propelled the field of Deep Learning came out in 1998 from Yann LeCun. This was named [LeNet5](http://yann.lecun.com/exdb/publis/pdf/lecun-01a.pdf)
@@ -130,7 +129,10 @@ In this regard the prize for a clean and simple network that can be easily under
 
 # The future: 
 
-If you are interested in a comparison of neural network architecture and computational performance, see [our recent paper](http://arxiv.org/abs/1605.07678)
+If you are interested in a comparison of neural network architecture and computational performance, see [our recent paper](http://arxiv.org/abs/1605.07678).
+
+We believe this crafting neural network architectures is of paramount importance for the progress of the Deep Learning field. Our group highly recommends reading carefully and understanding all the papers in this post.
+
 
 
 # Acknowledgments
