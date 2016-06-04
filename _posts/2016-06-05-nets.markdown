@@ -126,11 +126,11 @@ Inception still uses a pooling layer plus softmax as final classifier.
 
 # ResNet
 The revolution then came in December 2015, at about the same time as Inception v3.
-[ResNet](https://arxiv.org/abs/1512.03385) have a simple ideas: feed the output of two successive convolutional layer AND the inout again to the next layer! Bypass after 2 layers is key here, as bypassing a single layer did not give much improvements. By 2 layers can be thought as a small classifier, or a Network-In-Network!
+[ResNet](https://arxiv.org/abs/1512.03385) have a simple ideas: feed the output of two successive convolutional layer AND the inout again to the next layer!
 
 ![](/assets/nets/resnetb.jpg)
 
-This is similar to older ideas like [this one](http://yann.lecun.com/exdb/publis/pdf/sermanet-ijcnn-11.pdf). But here they bypass TWO layers and are applied to large scales.
+This is similar to older ideas like [this one](http://yann.lecun.com/exdb/publis/pdf/sermanet-ijcnn-11.pdf). But here they bypass TWO layers and are applied to large scales. Bypassing after 2 layers is a key intuition, as bypassing a single layer did not give much improvements. By 2 layers can be thought as a small classifier, or a Network-In-Network!
 
 This is also the very first time that a network of > hundred, even 1000 layers was trained. 
 
