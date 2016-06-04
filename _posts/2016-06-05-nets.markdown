@@ -156,8 +156,14 @@ Additional insights about the ResNet architecture are appearing every day:
 
 
 # Inception V4
-And Christian and team are at it again with a [new version of Inception](http://arxiv.org/abs/1602.07261):
-This time though the solution is, in my opinion, less elegant and more complex, but also full of less transparent heuristics.
+And Christian and team are at it again with a [new version of Inception](http://arxiv.org/abs/1602.07261).
+
+The Inception module after the stem is rather similar to Inception V3: ![](/assets/nets/inceptionv4a.jpg)
+
+They also combined the Inception module with the ResNet module: ![](/assets/nets/inceptionv4b.jpg)
+
+This time though the solution is, in my opinion, less elegant and more complex, but also full of less transparent heuristics. It is hard to understand the choices and it is also hard for the authors to justify them.
+
 In this regard the prize for a clean and simple network that can be easily understood and modified now goes to ResNet.
 
 
