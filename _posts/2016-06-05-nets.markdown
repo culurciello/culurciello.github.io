@@ -67,7 +67,7 @@ In December 2013 the NYU lab from Yann LeCun came up with [Overfeat](http://arxi
 # VGG
 The [VGG networks](http://arxiv.org/abs/1409.1556) from Oxford were the first to use much smaller 3x3 filters in each convolutional layers and also combined them as a sequence of convolutions. 
 
-This seems to be contrary to the principles of LeNet5, where large convolutions were used to capture similar features in an image. Instead of the 9x9 or 11x11 filters of AlexNet, filters started to become smaller, too dangerously close to the infamous 1x1 convolutions that LeNet5 wanted to avoid. But the great advantage of VGG was the insight that multiple 3x3 convolution in sequence can emulate the effect of larger receptive fields, for examples 5x5 and 7x7. These ideas will be also used in more recent network architectures as Inception and ResNet.
+This seems to be contrary to the principles of LeNet5, where large convolutions were used to capture similar features in an image. Instead of the 9x9 or 11x11 filters of AlexNet, filters started to become smaller, too dangerously close to the infamous 1x1 convolutions that LeNet5 wanted to avoid, at least on the first layers of the network. But the great advantage of VGG was the insight that multiple 3x3 convolution in sequence can emulate the effect of larger receptive fields, for examples 5x5 and 7x7. These ideas will be also used in more recent network architectures as Inception and ResNet.
 
 ![](/assets/nets/vgg.jpg)
 
