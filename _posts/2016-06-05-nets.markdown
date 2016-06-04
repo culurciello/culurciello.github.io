@@ -10,7 +10,7 @@ Deep neural networks and Deep Learning are powerful and popular algorithms. And 
 I wanted to revisit the history of neural network design in the last few years and in the context of Deep Learning.
 
 # LeNet5
-It is the year 1998, and this is one of the very first convolutional neural networks, and what propelled the field of Deep Learning. This pioneering work by Yann LeCun was named [LeNet5](http://yann.lecun.com/exdb/publis/pdf/lecun-01a.pdf)
+It is the year 1994, and this is one of the very first convolutional neural networks, and what propelled the field of Deep Learning. This pioneering work by Yann LeCun was named [LeNet5](http://yann.lecun.com/exdb/publis/pdf/lecun-01a.pdf) after many previous successful iterations since they year 1988! 
 
 ![](/assets/nets/lenet5.jpg)
 
@@ -40,11 +40,11 @@ In the years from 1998 to 2012 neural network were in incubation. Most people di
 
 # AlexNet
 In 2012, Alex Krizhevsky released [AlexNet](https://papers.nips.cc/paper/4824-imagenet-classification-with-deep-convolutional-neural-networks.pdf)
-which was a deeper and much wider version of the LeNet5 and won by a large margin the difficult ImageNet competition. 
+which was a deeper and much wider version of the LeNet and won by a large margin the difficult ImageNet competition. 
 
 ![](/assets/nets/alexnet_small.png)
 
-AlexNet scaled the insights of LeNet5 into a much larger neural network that could be used to learn much more complex objects and object hierarchies.
+AlexNet scaled the insights of LeNet into a much larger neural network that could be used to learn much more complex objects and object hierarchies.
 The contribution of this work were:
 
 - use of rectified linear units (ReLU) as non-linearities
@@ -67,7 +67,7 @@ In December 2013 the NYU lab from Yann LeCun came up with [Overfeat](http://arxi
 # VGG
 The [VGG networks](http://arxiv.org/abs/1409.1556) from Oxford were the first to use much smaller 3x3 filters in each convolutional layers and also combined them as a sequence of convolutions. 
 
-This seems to be contrary to the principles of LeNet5, where large convolutions were used to capture similar features in an image. Instead of the 9x9 or 11x11 filters of AlexNet, filters started to become smaller, too dangerously close to the infamous 1x1 convolutions that LeNet5 wanted to avoid, at least on the first layers of the network. But the great advantage of VGG was the insight that multiple 3x3 convolution in sequence can emulate the effect of larger receptive fields, for examples 5x5 and 7x7. These ideas will be also used in more recent network architectures as Inception and ResNet.
+This seems to be contrary to the principles of LeNet, where large convolutions were used to capture similar features in an image. Instead of the 9x9 or 11x11 filters of AlexNet, filters started to become smaller, too dangerously close to the infamous 1x1 convolutions that LeNet wanted to avoid, at least on the first layers of the network. But the great advantage of VGG was the insight that multiple 3x3 convolution in sequence can emulate the effect of larger receptive fields, for examples 5x5 and 7x7. These ideas will be also used in more recent network architectures as Inception and ResNet.
 
 ![](/assets/nets/vgg.jpg)
 
@@ -80,7 +80,7 @@ VGG used large feature sizes in many layers and thus inference was quite [costly
 # Network-in-network
 [Network-in-network](https://arxiv.org/abs/1312.4400) (NiN) had the great and simple insight of using 1x1 convolutions to provide more combinational power to the features of a convolutional layers.
 
-The NiN architecture used spatial MLP layers after each convolution, in order to better combine features before another layer. Again one can think the 1x1 convolutions are against the original principles of LeNet5, but really they instead help to combine convolutional features in a better way, which is not possible by simply stacking more convolutional layers. This is different from using raw pixels as input to the next layer. Here 1x1 convolution are used to spatially combine features across features maps after convolution, so they effectively use very few parameters, shared across all pixels of these features!
+The NiN architecture used spatial MLP layers after each convolution, in order to better combine features before another layer. Again one can think the 1x1 convolutions are against the original principles of LeNet, but really they instead help to combine convolutional features in a better way, which is not possible by simply stacking more convolutional layers. This is different from using raw pixels as input to the next layer. Here 1x1 convolution are used to spatially combine features across features maps after convolution, so they effectively use very few parameters, shared across all pixels of these features!
 
 ![](/assets/nets/nin.jpg)
 
