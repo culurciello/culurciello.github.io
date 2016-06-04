@@ -73,7 +73,7 @@ This seems to be contrary to the principles of LeNet5, where large convolutions 
 
 The VGG networks uses multiple 3x3 convolutional layers to represent complex features. Notice blocks 3, 4, 5 of VGG-E: 256x256 and 512x512 3x3 filters are used multiple times in sequence to extract more complex features and the combination of such features. This is effectively like having large 512x512 classifiers with 3 layers, which are convolutional! This obviously amounts to a massive number of parameters, and also learning power. But training of these network was difficult, and had to be split into smaller networks with layers added one by one. All this because of the lack of strong ways to regularize the model, or to somehow restrict the massive search space promoted by the large amount of parameters.
 
-VGG used large feature sizes in many layers and thus inference was quite costly at run-time http://arxiv.org/abs/1605.07678. Reducing the number of features, as done in Inception bottlenecks, will save some of the computational cost.
+VGG used large feature sizes in many layers and thus inference was quite [costly at run-time](http://arxiv.org/abs/1605.07678). Reducing the number of features, as done in Inception bottlenecks, will save some of the computational cost.
 
 
 
@@ -100,7 +100,7 @@ He and his team came up with the Inception module: ![](/assets/nets/inceptionv1.
 
 which at a first glance is basically the parallel combination of 1x1, 3x3, and 5x5 convolutional filters. But the great insight of the inception module was the use of 1x1 convolutional blocks (NiN) to reduce the number of features before the expensive parallel blocks. This is commonly referred as "bottleneck". Inspired by NiN, the bottleneck was reducing the number of features, and thus operations, at each layer, so the inference time could be kept low. Before passing data to the expensive convolution modules, the number of features was reduce by say 4 times. This led to large savings in computational cost, and the success of this architecture.
 
-GoogleNet used a stem without inception modules as initial layers, and an average pooling plus softmax classifier similar to NiN. This classifier is also extremely low number of operations, compared to the ones of AlexNet and VGG. This also contributed to a very efficient network design.
+GoogleNet used a stem without inception modules as initial layers, and an average pooling plus softmax classifier similar to NiN. This classifier is also extremely low number of operations, compared to the ones of AlexNet and VGG. This also contributed to a [very efficient network design](http://arxiv.org/abs/1605.07678).
 
 
 # Inception V3
