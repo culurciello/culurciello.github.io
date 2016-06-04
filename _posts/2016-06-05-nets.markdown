@@ -10,7 +10,7 @@ Deep neural networks and Deep Learning are now all the rage. And a lot of their 
 I wanted to revisit the history of neural network design in the last few years and in the context of Deep Learning.
 
 
-##LeNet5
+#LeNet5
 One of the very first convolutional neural networks, and what propelled the field of Deep Learning came out in 1998 from Yann LeCun. This was named [LeNet5](http://yann.lecun.com/exdb/publis/pdf/lecun-01a.pdf)
 
 ![](/assets/nets/lenet5.jpg)
@@ -26,7 +26,7 @@ In overall this network was the origin of much of the recent architectures, and 
 
 
 
-##Alexnet
+#AlexNet
 In 2012, Alex Krizhevsky released [AlexNet](https://papers.nips.cc/paper/4824-imagenet-classification-with-deep-convolutional-neural-networks.pdf)
 which was a deeper version of the LeNet5 and won by a large margin the difficult ImageNet competition. 
 
@@ -40,10 +40,10 @@ The contribution of this work were:
 - use of GPUs [GTX 580](http://www.geforce.com/hardware/desktop-gpus/geforce-gtx-580/specifications) to reduce training time  
 At the time GPU offered a much larger number of cores than CPUs, and allowed 10x faster training time, which in turn allowed to use larger datasets and also bigger images.
 
-##Overfeat
+#Overfeat
 In December 2013 the NYU lab from Yann LeCun came up with [Overfeat](http://arxiv.org/abs/1312.6229), which is a derivative of AlexNet. The article also proposed learning bounding boxes, which later gave rise to many other papers on the same topic. I believe it is better to learn to segment objects rather than learn artificial bounding boxes.
 
-##VGG
+#VGG
 The [VGG networks](http://arxiv.org/abs/1409.1556) from Oxford were the first to use 3x3 filters in each layers and also combined them as a sequence of convolutions. 
 This seems to be contrary to the principles of LeNet5, where large convolutions were used to capture similar features in an image. Instead of the 9x9 or 11x11 filters of AlexNet, filters started to become smaller, too dangerously close to the infamous 1x1 convolutions that LeNet5 wanted to avoid. But the great advantage of VGG was the insight that multiple 3x3 convolution in sequence can emulate the effect of larger receptive fields, for examples 5x5 and 7x7. These ideas will be also used in more recent network architectures as Inception and ResNet.
 
@@ -54,7 +54,7 @@ VGG used large feature sizes in many layers and thus inference was quite costly 
 
 
 
-##Network-in-network
+#Network-in-network
 [Network-in-network](https://arxiv.org/abs/1312.4400) (NiN) had a great insight of using 1x1 convolutions to provide more combinational power to the features of a convolutional layers.
 The NiN architecture used spatial MLP layers after each convolution, in order to better combine features before another layer. 
 
@@ -64,7 +64,7 @@ The power of MLP can greatly increase the effectiveness of individual convolutio
 NiN also used an average pooling layer as part of the last classifier, another practice that will become common. This was done to average the response of the network to multiple are of the input image before classification.
 
 
-##GoogleNet and Inception
+#GoogleNet and Inception
 Christian Szegedy from Google begun a quest on reducing the computational burden of deep neural networks, and devised the [GoogleNet architecture](https://arxiv.org/abs/1409.4842).
 By now, Fall 2014, deep learning models were becoming very useful in categorizing the content of images and video frames. As such the internet giants like Google were very interested in efficient deployments of architectures on their server farms.
 Christian thought a lot about ways to reduce the computational cost while obtaining state-of-art performance (on ImageNet, for example). Or be able to keep the computational cost the same, while offering improved performance.
@@ -75,7 +75,7 @@ He and his team came up with the Inception module:
 which at a first glance is basically the parallel combination of 1x1, 3x3, and 5x5 convolutional filters. But the great insight of the inception module was the use of 1x1 convolutional blocks (NiN) to reduce the number of features before the expensive parallel blocks. This is commonly referred as "bottleneck". Inspired by NiN, the bottleneck was reducing the number of features, and thus operations, at each layer, so the inference time could be kept low.
 GoogleNet used a stem without inception modules as initial layers, and an average pooling plus softmax classifier similar to NiN. This classifier is also extremely low number of operations, compared to the ones of AlexNet and VGG. This also contributed to a very efficient network design.
 
-##Inception V3
+#Inception V3
 Christian and his team are very efficient. In December 2015 they released a [new version of the Inception modules and the corresponding architecture](http://arxiv.org/abs/1512.00567)
 This article better explains the previous GoogleNet and the ideas behind it. A list of ideas are:
 - maximize information flow into the network, by carefully constructing networks that balance depth and width. Before each pooling, increase the feature maps.
@@ -100,7 +100,7 @@ This article better explains the previous GoogleNet and the ideas behind it. A l
 Inception still uses a pooling layer plus softmax as final classifier.
 
 
-##ResNet
+#ResNet
 The revolution then came in December 2015, at about the same time as Inception v3.
 [ResNet](https://arxiv.org/abs/1512.03385) have a simple ideas: feed the output of two successive convolutional layer AND the inout again to the next layer! 
 
@@ -122,16 +122,16 @@ Additional insights about the ResNet architecture are appearing every day:
 - ResNet, when the output is fed back to the input, as in RNN, the network can be seen as a better [bio-plausible model of the cortex](https://arxiv.org/abs/1604.03640)
 
 
-##Inception V4
+#Inception V4
 And Christian and team are at it again with a [new version of Inception](http://arxiv.org/abs/1602.07261):
 This time though the solution is, in my opinion, less elegant and more complex, but also full of less transparent heuristics.
 In this regard the prize for a clean and simple network that can be easily understood and modified now goes to ResNet.
 
 
-##The future: 
+#The future: 
 
 If you are interested in a comparison of neural network architecture and computational performance, see [our recent paper](http://arxiv.org/abs/1605.07678)
 
 
-##Acknowledgments
+#Acknowledgments
 This post was inspired by discussions with Abhishek Chaurasia, Adam Paskze, Sangpil Kim, Alfredo Canziani and others in our e-Lab at Purdue University.
