@@ -174,4 +174,4 @@ If you are interested in a comparison of neural network architecture and computa
 
 
 # Acknowledgments
-This post was inspired by discussions with Abhishek Chaurasia, Adam Paskze, Sangpil Kim, Alfredo Canziani and others in our e-Lab at Purdue University.
+This post was inspired by discussions with Abhishek Chaurasia, Adam Paszke, Sangpil Kim, Alfredo Canziani and others in our e-Lab at Purdue University.
