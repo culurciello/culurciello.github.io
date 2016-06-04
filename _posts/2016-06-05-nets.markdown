@@ -57,7 +57,7 @@ The contribution of this work were:
 
 At the time GPU offered a much larger number of cores than CPUs, and allowed 10x faster training time, which in turn allowed to use larger datasets and also bigger images.
 
-The success of AlexNet started a small revolution. Convolutional neural network became the facade of Deep Learning, which because the new name for "large neural networks that can now solve useful tasks".
+The success of AlexNet started a small revolution. Convolutional neural network became the facade of Deep Learning, which became the new name for "large neural networks that can now solve useful tasks".
 
 
 # Overfeat
