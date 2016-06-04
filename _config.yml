@@ -1,0 +1,23 @@
+# Site settings
+title: Eugenio Culurciello's blog
+email: culurciello@gmail.com
+description: > # this means to ignore newlines until "baseurl:"
+  My views on tech; views that are ideas and comments and like code
+  constantly change and evolve. These views are my own, but feel free to 
+  comment and improve them. 
+baseurl: "" # the subpath of your site, e.g. /blog/
+url: "https://http://culurciello.github.io/" # the base hostname & protocol for your site
+twitter_username: culurciello
+github_username:  culurciello
+facebook_username:  culurciello
+google_username:  culurciello
+
+# Build settings
+markdown: kramdown
+
+# github
+# highlighter: pygments
+# github: [Repository metadata]
+# safe: true
+# lsi: false
+# source: your top-level directory
