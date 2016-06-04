@@ -55,7 +55,7 @@ This seems to be contrary to the principles of LeNet5, where large convolutions 
 
 ![](/assets/nets/vgg.jpg)
 
-The VGG networks uses multiple 3x3 convolutional layers to represent complex features. In some later layer 256x256 and 512x512 3x3 filters are used multiple times in sequence to extract more complex features and the combination of such features. This is effectively like having large 512x512 classifiers with 3 layers, which are convolutional! This obviously amounts to a massive number of parameters, and also learning power. But training of these network was difficult, and had to be split into smaller networks with layers added one by one. All this because of the lack of strong ways to regularize the model, or to somehow restrict the massive search space promoted by the large amount of parameters.
+The VGG networks uses multiple 3x3 convolutional layers to represent complex features. Notice blocks 3, 4, 5 of VGG-E: 256x256 and 512x512 3x3 filters are used multiple times in sequence to extract more complex features and the combination of such features. This is effectively like having large 512x512 classifiers with 3 layers, which are convolutional! This obviously amounts to a massive number of parameters, and also learning power. But training of these network was difficult, and had to be split into smaller networks with layers added one by one. All this because of the lack of strong ways to regularize the model, or to somehow restrict the massive search space promoted by the large amount of parameters.
 VGG used large feature sizes in many layers and thus inference was quite costly at run-time http://arxiv.org/abs/1605.07678. Reducing the number of features, as done in Inception bottlenecks, will save some of the computational cost.
 
 
