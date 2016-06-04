@@ -16,12 +16,14 @@ It is the year 1998, and this is one of the very first convolutional neural netw
 
 The LeNet5 architecture was fundamental, in particular the insight that image features are distributed across the entire image, and convolutions with learnable parameters are an effective way to extract similar features at multiple location with few parameters. At the time there was no GPU to help training, and even CPUs were slow. Therefore being able to save parameters and computation was a key advantage. This is in contrast to using a large neural network operating on each pixel separately, what we now refer to spatial 1x1 convolutions.
 LeNet5 features can be summarized as:
-- convolution of inputs is the workhorse of computation
-- subsampling via averaging
+- convolutional neural network use sequence of 3 layers: convolution, pooling, non-linearity --> This may be the key feateure of Deep Learning for images since this paper!
+- use convolution to extract spatial features
+- subsample using spatial average of maps
 - non-linearity in the form of tanh or sigmoids
 - multi-layer neural network (MLP) as final classifier
 - sparse connection matrix between layers to avoid large computational cost
 In overall this network was the origin of much of the recent architectures, and a true inspiration for many people in the field.
+
 
 
 # The gap
