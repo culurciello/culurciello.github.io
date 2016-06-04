@@ -80,7 +80,7 @@ VGG used large feature sizes in many layers and thus inference was quite [costly
 # Network-in-network
 [Network-in-network](https://arxiv.org/abs/1312.4400) (NiN) had the great and simple insight of using 1x1 convolutions to provide more combinational power to the features of a convolutional layers.
 
-The NiN architecture used spatial MLP layers after each convolution, in order to better combine features before another layer. Again one can think the 1x1 convolutions are against the original principles of LeNet5, but really they instead help to combine convolutional features in a better way, which is not possible by simply stacking more convolutional layers.
+The NiN architecture used spatial MLP layers after each convolution, in order to better combine features before another layer. Again one can think the 1x1 convolutions are against the original principles of LeNet5, but really they instead help to combine convolutional features in a better way, which is not possible by simply stacking more convolutional layers. This is different from using raw pixels as input to the next layer. Here 1x1 convolution are used to spatially combine features across features maps after convolution, so they effectively use very few parameters, shared across all pixels of these features!
 
 ![](/assets/nets/nin.jpg)
 
