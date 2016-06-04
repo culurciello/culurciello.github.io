@@ -14,11 +14,11 @@ It is the year 1998, and this is one of the very first convolutional neural netw
 
 ![](/assets/nets/lenet5.jpg)
 
-The LeNet5 architecture was fundamental, in particular the insight that image features are distributed across the entire image, and convolutions with learnable parameters are an effective way to extract similar features at multiple location with few parameters. At the time there was no GPU to help training, and even CPUs were slow. Therefore being able to save parameters and computation was a key advantage. This is in contrast to using a large neural network operating on each pixel separately, what we now refer to spatial 1x1 convolutions.
+The LeNet5 architecture was fundamental, in particular the insight that image features are distributed across the entire image, and convolutions with learnable parameters are an effective way to extract similar features at multiple location with few parameters. At the time there was no GPU to help training, and even CPUs were slow. Therefore being able to save parameters and computation was a key advantage. This is in contrast to using a large neural network operating on each pixel separately, what we now refer to spatial 1x1 convolutions. LeNet5 explained that those should not be used in the first layer, because images are highly spatially correlated, and using individual pixel of the image as separate input features would not take advantage of these correlations. 
 
 LeNet5 features can be summarized as:
 
-- convolutional neural network use sequence of 3 layers: convolution, pooling, non-linearity --> This may be the key feateure of Deep Learning for images since this paper!
+- convolutional neural network use sequence of 3 layers: convolution, pooling, non-linearity --> This may be the key feature of Deep Learning for images since this paper!
 
 - use convolution to extract spatial features
 
