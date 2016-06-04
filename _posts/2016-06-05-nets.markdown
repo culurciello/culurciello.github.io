@@ -25,7 +25,7 @@ In overall this network was the origin of much of the recent architectures, and 
 
 
 # The gap
-In the years from 1998 to 2012 neural network were in incubation. Most people did not noticed their increasing power, while many other researchers slowly progressed. More and more data was available because of the rise of cell-phone cameras and cheap digital cameras. And computing power was on the rise, CPUs were becoming faster, and GPUs became a general-purpose computing tool. Both of these trends made neural network progress, albeit at a slow rate. Both data and computing power made the tasks that neural networks tackeld more and more interesting. And then it became clear...
+In the years from 1998 to 2012 neural network were in incubation. Most people did not notice their increasing power, while many other researchers slowly progressed. More and more data was available because of the rise of cell-phone cameras and cheap digital cameras. And computing power was on the rise, CPUs were becoming faster, and GPUs became a general-purpose computing tool. Both of these trends made neural network progress, albeit at a slow rate. Both data and computing power made the tasks that neural networks tackled more and more interesting. And then it became clear...
 
 
 # AlexNet
