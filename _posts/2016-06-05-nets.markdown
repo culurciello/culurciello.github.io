@@ -121,7 +121,7 @@ The reason for the success is that the input features are correlated, and thus r
 
 # Inception V3
 Christian and his team are very efficient researchers. In December 2015 they released a [new version of the Inception modules and the corresponding architecture](http://arxiv.org/abs/1512.00567)
-This article better explains the previous GoogLeNet and the ideas behind it. A list of ideas are:
+This article better explains the original GoogLeNet architecture, giving a lot more detail on the design choices. A list of the original ideas are:
 
 - maximize information flow into the network, by carefully constructing networks that balance depth and width. Before each pooling, increase the feature maps.
 
