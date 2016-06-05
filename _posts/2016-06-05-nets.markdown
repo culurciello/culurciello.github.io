@@ -152,7 +152,7 @@ This is similar to older ideas like [this one](http://yann.lecun.com/exdb/publis
 
 This is also the very first time that a network of > hundred, even 1000 layers was trained. 
 
-Resnet with a large number of layers started to use a bottleneck layer similar to the Inception bottleneck:
+ResNet with a large number of layers started to use a bottleneck layer similar to the Inception bottleneck:
 
 ![](/assets/nets/resnetbottleneck.jpg)
 
