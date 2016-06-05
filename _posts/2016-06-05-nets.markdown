@@ -89,8 +89,8 @@ The power of MLP can greatly increase the effectiveness of individual convolutio
 NiN also used an average pooling layer as part of the last classifier, another practice that will become common. This was done to average the response of the network to multiple are of the input image before classification.
 
 
-# GoogleNet and Inception
-Christian Szegedy from Google begun a quest aimed at reducing the computational burden of deep neural networks, and devised the [GoogleNet architecture](https://arxiv.org/abs/1409.4842).
+# GoogLeNet and Inception
+Christian Szegedy from Google begun a quest aimed at reducing the computational burden of deep neural networks, and devised the [GoogLeNet architecture](https://arxiv.org/abs/1409.4842).
 
 By now, Fall 2014, deep learning models were becoming extermely useful in categorizing the content of images and video frames. Most skeptics had given in that Deep Learning and neural nets came back to stay this time. Given the usefulness of these techniques, the internet giants like Google were very interested in efficient and large deployments of architectures on their server farms.
 
@@ -100,7 +100,7 @@ He and his team came up with the Inception module: ![](/assets/nets/inceptionv1.
 
 which at a first glance is basically the parallel combination of 1x1, 3x3, and 5x5 convolutional filters. But the great insight of the inception module was the use of 1x1 convolutional blocks (NiN) to reduce the number of features before the expensive parallel blocks. This is commonly referred as "bottleneck". This deserves its own section to explain: see "bottleneck layer" section below.
 
-GoogleNet used a stem without inception modules as initial layers, and an average pooling plus softmax classifier similar to NiN. This classifier is also extremely low number of operations, compared to the ones of AlexNet and VGG. This also contributed to a [very efficient network design](http://arxiv.org/abs/1605.07678).
+GoogLeNet used a stem without inception modules as initial layers, and an average pooling plus softmax classifier similar to NiN. This classifier is also extremely low number of operations, compared to the ones of AlexNet and VGG. This also contributed to a [very efficient network design](http://arxiv.org/abs/1605.07678).
 
 # Bottleneck layer
 
@@ -121,7 +121,7 @@ The reason for the success is that the input features are correlated, and thus r
 
 # Inception V3
 Christian and his team are very efficient researchers. In December 2015 they released a [new version of the Inception modules and the corresponding architecture](http://arxiv.org/abs/1512.00567)
-This article better explains the previous GoogleNet and the ideas behind it. A list of ideas are:
+This article better explains the previous GoogLeNet and the ideas behind it. A list of ideas are:
 
 - maximize information flow into the network, by carefully constructing networks that balance depth and width. Before each pooling, increase the feature maps.
 
@@ -154,7 +154,7 @@ Resnet with a large number of layers started to use a bottleneck layer similar t
 
 ![](/assets/nets/resnetbottleneck.jpg)
 
-This layer reduces the number of features at each layer by first using a 1x1 convolution with a smaller output (usually 1/4 of the input), and then a 3x3 layer, and then again a 1x1 convolution to a larger number of features. Like in the case of Inception modules, this allows to keep the computation low, while providing rich combination of features. See "bottleneck layer" section after "GoogleNet and Inception".
+This layer reduces the number of features at each layer by first using a 1x1 convolution with a smaller output (usually 1/4 of the input), and then a 3x3 layer, and then again a 1x1 convolution to a larger number of features. Like in the case of Inception modules, this allows to keep the computation low, while providing rich combination of features. See "bottleneck layer" section after "GoogLeNet and Inception".
 
 ResNet uses a fairly simple initial layers at the input (stem): a 7x7 conv layer followed with a pool of 2. Contrast this to more complex and less intuitive stems as in Inception V3, V4.
 
