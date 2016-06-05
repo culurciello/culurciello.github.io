@@ -190,9 +190,9 @@ The technical report will be released in a few days. Stay tuned.
 
 
 # The future: 
-We believe this crafting neural network architectures is of paramount importance for the progress of the Deep Learning field. Our group highly recommends reading carefully and understanding all the papers in this post.
+We believe that crafting neural network architectures is of paramount importance for the progress of the Deep Learning field. Our group highly recommends reading carefully and understanding all the papers in this post.
 
-But one could now wonder why we have to spend so much time in crafting architectures, and why instead we do not use data to tell us what to use, and how to combine it. This would be nice, but now it is work in progress. Slow progress.
+But one could now wonder why we have to spend so much time in crafting architectures, and why instead we do not use data to tell us what to use, and how to combine modules. This would be nice, but now it is work in progress. Slow progress.
 
 Note also that here we mostly talked about architectures for computer vision. Similarly neural network architectures developed in other areas, and it is interesting to study the evolution of architectures for all other tasks also.
 
