@@ -67,11 +67,11 @@ In December 2013 the NYU lab from Yann LeCun came up with [Overfeat](http://arxi
 # VGG
 The [VGG networks](http://arxiv.org/abs/1409.1556) from Oxford were the first to use much smaller 3×3 filters in each convolutional layers and also combined them as a sequence of convolutions. 
 
-This seems to be contrary to the principles of LeNet, where large convolutions were used to capture similar features in an image. Instead of the 9×9 or 11×11 filters of AlexNet, filters started to become smaller, too dangerously close to the infamous 1x1 convolutions that LeNet wanted to avoid, at least on the first layers of the network. But the great advantage of VGG was the insight that multiple 3x3 convolution in sequence can emulate the effect of larger receptive fields, for examples 5x5 and 7x7. These ideas will be also used in more recent network architectures as Inception and ResNet.
+This seems to be contrary to the principles of LeNet, where large convolutions were used to capture similar features in an image. Instead of the 9×9 or 11×11 filters of AlexNet, filters started to become smaller, too dangerously close to the infamous 1×1 convolutions that LeNet wanted to avoid, at least on the first layers of the network. But the great advantage of VGG was the insight that multiple 3×3 convolution in sequence can emulate the effect of larger receptive fields, for examples 5×5 and 7×7. These ideas will be also used in more recent network architectures as Inception and ResNet.
 
 ![](/assets/nets/vgg.jpg)
 
-The VGG networks uses multiple 3x3 convolutional layers to represent complex features. Notice blocks 3, 4, 5 of VGG-E: 256x256 and 512x512 3x3 filters are used multiple times in sequence to extract more complex features and the combination of such features. This is effectively like having large 512x512 classifiers with 3 layers, which are convolutional! This obviously amounts to a massive number of parameters, and also learning power. But training of these network was difficult, and had to be split into smaller networks with layers added one by one. All this because of the lack of strong ways to regularize the model, or to somehow restrict the massive search space promoted by the large amount of parameters.
+The VGG networks uses multiple 3x3 convolutional layers to represent complex features. Notice blocks 3, 4, 5 of VGG-E: 256×256 and 512×512 3×3 filters are used multiple times in sequence to extract more complex features and the combination of such features. This is effectively like having large 512×512 classifiers with 3 layers, which are convolutional! This obviously amounts to a massive number of parameters, and also learning power. But training of these network was difficult, and had to be split into smaller networks with layers added one by one. All this because of the lack of strong ways to regularize the model, or to somehow restrict the massive search space promoted by the large amount of parameters.
 
 VGG used large feature sizes in many layers and thus inference was quite [costly at run-time](http://arxiv.org/abs/1605.07678). Reducing the number of features, as done in Inception bottlenecks, will save some of the computational cost.
 
@@ -80,7 +80,7 @@ VGG used large feature sizes in many layers and thus inference was quite [costly
 # Network-in-network
 [Network-in-network](https://arxiv.org/abs/1312.4400) (NiN) had the great and simple insight of using 1x1 convolutions to provide more combinational power to the features of a convolutional layers.
 
-The NiN architecture used spatial MLP layers after each convolution, in order to better combine features before another layer. Again one can think the 1x1 convolutions are against the original principles of LeNet, but really they instead help to combine convolutional features in a better way, which is not possible by simply stacking more convolutional layers. This is different from using raw pixels as input to the next layer. Here 1x1 convolution are used to spatially combine features across features maps after convolution, so they effectively use very few parameters, shared across all pixels of these features!
+The NiN architecture used spatial MLP layers after each convolution, in order to better combine features before another layer. Again one can think the 1x1 convolutions are against the original principles of LeNet, but really they instead help to combine convolutional features in a better way, which is not possible by simply stacking more convolutional layers. This is different from using raw pixels as input to the next layer. Here 1×1 convolution are used to spatially combine features across features maps after convolution, so they effectively use very few parameters, shared across all pixels of these features!
 
 ![](/assets/nets/nin.jpg)
 
@@ -98,7 +98,7 @@ Christian thought a lot about ways to reduce the computational burden of deep ne
 
 He and his team came up with the Inception module: ![](/assets/nets/inceptionv1.jpg)
 
-which at a first glance is basically the parallel combination of 1x1, 3x3, and 5x5 convolutional filters. But the great insight of the inception module was the use of 1x1 convolutional blocks (NiN) to reduce the number of features before the expensive parallel blocks. This is commonly referred as "bottleneck". This deserves its own section to explain: see "bottleneck layer" section below.
+which at a first glance is basically the parallel combination of 1×1, 3×3, and 5×5 convolutional filters. But the great insight of the inception module was the use of 1×1 convolutional blocks (NiN) to reduce the number of features before the expensive parallel blocks. This is commonly referred as "bottleneck". This deserves its own section to explain: see "bottleneck layer" section below.
 
 GoogLeNet used a stem without inception modules as initial layers, and an average pooling plus softmax classifier similar to NiN. This classifier is also extremely low number of operations, compared to the ones of AlexNet and VGG. This also contributed to a [very efficient network design](http://arxiv.org/abs/1605.07678).
 
@@ -106,11 +106,11 @@ GoogLeNet used a stem without inception modules as initial layers, and an averag
 
 Inspired by NiN, the bottleneck layer of Inception was reducing the number of features, and thus operations, at each layer, so the inference time could be kept low. Before passing data to the expensive convolution modules, the number of features was reduce by, say, 4 times. This led to large savings in computational cost, and the success of this architecture.
 
-Let's examine this in detail. Let's say you have 256 features coming in, and 256 coming out, and let's say the Inception layer only performs 3x3 convolutions. That is 256x256 x 3x3 convolutions that have to be performed (589,000s multiply-accumulate, or MAC operations). That may be more than the computational budget we have, say, to run this layer in 0.5 milli-seconds on a Google Server. Instead of doing this, we decide to reduce the number of features that will have to be convolved, say to 64 or 256/4. In this case, we first perform 256 -> 64 1x1 convolutions, then 64 convolution on all Inception branches, and then we use again a 1x1 convolution from 64 -> 256 features back again. The operations are now:
+Let's examine this in detail. Let's say you have 256 features coming in, and 256 coming out, and let's say the Inception layer only performs 3x3 convolutions. That is 256x256 x 3x3 convolutions that have to be performed (589,000s multiply-accumulate, or MAC operations). That may be more than the computational budget we have, say, to run this layer in 0.5 milli-seconds on a Google Server. Instead of doing this, we decide to reduce the number of features that will have to be convolved, say to 64 or 256/4. In this case, we first perform 256 -> 64 1×1 convolutions, then 64 convolution on all Inception branches, and then we use again a 1x1 convolution from 64 -> 256 features back again. The operations are now:
 
-- 256*64 x 1x1 = 16,000s
-- 64x64 x 3x3 = 36,000s
-- 64x256 x 1x1 = 16,000s
+- 256×64 × 1×1 = 16,000s
+- 64×64 × 3×3 = 36,000s
+- 64×256 × 1×1 = 16,000s
 
 For a total of about 70,000 versus the almost 600,000 we had before. Almost 10x less operations!
 
