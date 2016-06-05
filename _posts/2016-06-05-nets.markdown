@@ -102,7 +102,7 @@ which at a first glance is basically the parallel combination of 1x1, 3x3, and 5
 
 GoogleNet used a stem without inception modules as initial layers, and an average pooling plus softmax classifier similar to NiN. This classifier is also extremely low number of operations, compared to the ones of AlexNet and VGG. This also contributed to a [very efficient network design](http://arxiv.org/abs/1605.07678).
 
-## Bottleneck layer
+# Bottleneck layer
 
 Inspired by NiN, the bottleneck layer of Inception was reducing the number of features, and thus operations, at each layer, so the inference time could be kept low. Before passing data to the expensive convolution modules, the number of features was reduce by, say, 4 times. This led to large savings in computational cost, and the success of this architecture.
 
