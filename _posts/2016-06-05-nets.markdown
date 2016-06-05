@@ -90,7 +90,7 @@ NiN also used an average pooling layer as part of the last classifier, another p
 
 
 # GoogLeNet and Inception
-Christian Szegedy from Google begun a quest aimed at reducing the computational burden of deep neural networks, and devised the [GoogLeNet architecture](https://arxiv.org/abs/1409.4842).
+Christian Szegedy from Google begun a quest aimed at reducing the computational burden of deep neural networks, and devised the [GoogLeNet the first Inception architecture](https://arxiv.org/abs/1409.4842).
 
 By now, Fall 2014, deep learning models were becoming extermely useful in categorizing the content of images and video frames. Most skeptics had given in that Deep Learning and neural nets came back to stay this time. Given the usefulness of these techniques, the internet giants like Google were very interested in efficient and large deployments of architectures on their server farms.
 
