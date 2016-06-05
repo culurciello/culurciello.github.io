@@ -144,7 +144,7 @@ Inception still uses a pooling layer plus softmax as final classifier.
 
 # ResNet
 The revolution then came in December 2015, at about the same time as Inception v3.
-[ResNet](https://arxiv.org/abs/1512.03385) have a simple ideas: feed the output of two successive convolutional layer AND the inout again to the next layer!
+[ResNet](https://arxiv.org/abs/1512.03385) have a simple ideas: feed the output of two successive convolutional layer AND also bypass the input to the next layers!
 
 ![](/assets/nets/resnetb.jpg)
 
