@@ -49,7 +49,7 @@ The contribution of this work were:
 
 - use of rectified linear units (ReLU) as non-linearities
 
-- use of dropout technique to selectively ignore feature maps during training, a way to avoid overfitting of the model
+- use of dropout technique to selectively ignore single neurons during training, a way to avoid overfitting of the model
 
 - overlapping max pooling, avoiding the averaging effects of average pooling
 
