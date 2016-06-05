@@ -191,7 +191,7 @@ Our team set up to combine all the features of the recent architectures into a v
 The technical report will be released in a few days. Stay tuned. 
 
 
-# The future: 
+# The future
 We believe that crafting neural network architectures is of paramount importance for the progress of the Deep Learning field. Our group highly recommends reading carefully and understanding all the papers in this post.
 
 But one could now wonder why we have to spend so much time in crafting architectures, and why instead we do not use data to tell us what to use, and how to combine modules. This would be nice, but now it is work in progress. Slow progress.
