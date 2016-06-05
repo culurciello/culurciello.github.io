@@ -98,9 +98,25 @@ Christian thought a lot about ways to reduce the computational burden of deep ne
 
 He and his team came up with the Inception module: ![](/assets/nets/inceptionv1.jpg)
 
-which at a first glance is basically the parallel combination of 1x1, 3x3, and 5x5 convolutional filters. But the great insight of the inception module was the use of 1x1 convolutional blocks (NiN) to reduce the number of features before the expensive parallel blocks. This is commonly referred as "bottleneck". Inspired by NiN, the bottleneck was reducing the number of features, and thus operations, at each layer, so the inference time could be kept low. Before passing data to the expensive convolution modules, the number of features was reduce by say 4 times. This led to large savings in computational cost, and the success of this architecture.
+which at a first glance is basically the parallel combination of 1x1, 3x3, and 5x5 convolutional filters. But the great insight of the inception module was the use of 1x1 convolutional blocks (NiN) to reduce the number of features before the expensive parallel blocks. This is commonly referred as "bottleneck". This deserves its own section to explain: see "bottleneck layer" section below.
 
 GoogleNet used a stem without inception modules as initial layers, and an average pooling plus softmax classifier similar to NiN. This classifier is also extremely low number of operations, compared to the ones of AlexNet and VGG. This also contributed to a [very efficient network design](http://arxiv.org/abs/1605.07678).
+
+## Bottleneck layer
+
+Inspired by NiN, the bottleneck layer of Inception was reducing the number of features, and thus operations, at each layer, so the inference time could be kept low. Before passing data to the expensive convolution modules, the number of features was reduce by, say, 4 times. This led to large savings in computational cost, and the success of this architecture.
+
+Let's examine this in detail. Let's say you have 256 features coming in, and 256 coming out, and let's say the Inception layer only performs 3x3 convolutions. That is 256x256 x 3x3 convolutions that have to be performed (589,000s multiply-accumulate, or MAC operations). That may be more than the computational budget we have, say, to run this layer in 0.5 milli-seconds on a Google Server. Instead of doing this, we decide to reduce the number of features that will have to be convolved, say to 64 or 256/4. In this case, we first perform 256 -> 64 1x1 convolutions, then 64 convolution on all Inception branches, and then we use again a 1x1 convolution from 64 -> 256 features back again. The operations are now:
+
+- 256*64 x 1x1 = 16,000s
+- 64x64 x 3x3 = 36,000s
+- 64x256 x 1x1 = 16,000s
+
+For a total of about 70,000 versus the almost 600,000 we had before. Almost 10x less operations!
+
+And although we are doing less operations, we are not losing generality in this layer. In fact the bottleneck layers have been proven to perform at state-of-art on the ImageNet dataset, for example, and will be also used in later architectures such as ResNet.
+
+The reason for the success is that the input features are correlated, and thus redundancy can be removed by combining them appropriately with the 1x1 convolutions. Then, after convolution with a smaller number of features, they can be expanded again into meaningful combination for the next layer.
 
 
 # Inception V3
@@ -138,7 +154,7 @@ Resnet with a large number of layers started to use a bottleneck layer similar t
 
 ![](/assets/nets/resnetbottleneck.jpg)
 
-This layer reduces the number of features at each layer by first using a 1x1 convolution with a smaller output (usually 1/4 of the input), and then a 3x3 layer, and then again a 1x1 convolution to a larger number of features. Like in the case of Inception modules, this allows to keep the computation low, while providing rich combination of features.
+This layer reduces the number of features at each layer by first using a 1x1 convolution with a smaller output (usually 1/4 of the input), and then a 3x3 layer, and then again a 1x1 convolution to a larger number of features. Like in the case of Inception modules, this allows to keep the computation low, while providing rich combination of features. See "bottleneck layer" section after "GoogleNet and Inception".
 
 ResNet uses a fairly simple initial layers at the input (stem): a 7x7 conv layer followed with a pool of 2. Contrast this to more complex and less intuitive stems as in Inception V3, V4.
 
