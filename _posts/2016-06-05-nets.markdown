@@ -184,11 +184,15 @@ This time though the solution is, in my opinion, less elegant and more complex, 
 
 In this regard the prize for a clean and simple network that can be easily understood and modified now goes to ResNet.
 
+# SqueezeNet
+[SqueezeNet](http://arxiv.org/abs/1602.07360) has been recently released. It is a re-hash of many concepts from ResNet and Inception, and show that after all, a better design of architecture will deliver small network sizes and parameters without needing complex compression algorithms.
+
 
 # ENet
 Our team set up to combine all the features of the recent architectures into a very efficient and light-weight network that uses very few parameters and computation to achieve state-of-the-art results. This network architecture is dubbed ENet, and was designed by Adam Paszke. We have used it to perform pixel-wise labeling and scene-parsing. Here are [some videos of ENet in action](https://www.youtube.com/watch?v=3jq4FnO5Nco&list=PLNgy4gid0G9c4qiVBrERE_5v_b1pu-5pQ) on the CityScapes dataset.
 
 The technical report will be released in a few days. Stay tuned. 
+
 
 
 # The future
