@@ -35,7 +35,11 @@ In overall this network was the origin of much of the recent architectures, and 
 
 
 # The gap
-In the years from 1998 to 2012 neural network were in incubation. Most people did not notice their increasing power, while many other researchers slowly progressed. More and more data was available because of the rise of cell-phone cameras and cheap digital cameras. And computing power was on the rise, CPUs were becoming faster, and GPUs became a general-purpose computing tool. Both of these trends made neural network progress, albeit at a slow rate. Both data and computing power made the tasks that neural networks tackled more and more interesting. And then it became clear...
+In the years from 1998 to 2010 neural network were in incubation. Most people did not notice their increasing power, while many other researchers slowly progressed. More and more data was available because of the rise of cell-phone cameras and cheap digital cameras. And computing power was on the rise, CPUs were becoming faster, and GPUs became a general-purpose computing tool. Both of these trends made neural network progress, albeit at a slow rate. Both data and computing power made the tasks that neural networks tackled more and more interesting. And then it became clear...
+
+
+# Dan Ciresan Net
+In 2010 Dan Claudiu Ciresan and Jurgen Schmidhuber published one of the very fist implementations of [GPU Neural nets](http://arxiv.org/abs/1003.0358). This implementation had both forward and backward implemented on a a [NVIDIA GTX 280](http://www.geforce.com/hardware/desktop-gpus/geforce-gtx-280) graphic processor of an up to 9 layers neural network.
 
 
 # AlexNet
@@ -53,7 +57,7 @@ The contribution of this work were:
 
 - overlapping max pooling, avoiding the averaging effects of average pooling
 
-- use of GPUs [GTX 580](http://www.geforce.com/hardware/desktop-gpus/geforce-gtx-580/specifications) to reduce training time  
+- use of GPUs [NVIDIA GTX 580](http://www.geforce.com/hardware/desktop-gpus/geforce-gtx-580/specifications) to reduce training time  
 
 At the time GPU offered a much larger number of cores than CPUs, and allowed 10x faster training time, which in turn allowed to use larger datasets and also bigger images.
 
