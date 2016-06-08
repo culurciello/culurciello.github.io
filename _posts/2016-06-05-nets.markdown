@@ -193,7 +193,7 @@ In this regard the prize for a clean and simple network that can be easily under
 
 
 # ENet
-Our team set up to combine all the features of the recent architectures into a very efficient and light-weight network that uses very few parameters and computation to achieve state-of-the-art results. This network architecture is dubbed [ENet](https://arxiv.org/abs/1606.02147), and was designed by Adam Paszke. We have used it to perform pixel-wise labeling and scene-parsing. Here are [some videos of ENet in action](https://www.youtube.com/watch?v=3jq4FnO5Nco&list=PLNgy4gid0G9c4qiVBrERE_5v_b1pu-5pQ) on the CityScapes dataset.
+Our team set up to combine all the features of the recent architectures into a very efficient and light-weight network that uses very few parameters and computation to achieve state-of-the-art results. This network architecture is dubbed [ENet](https://arxiv.org/abs/1606.02147), and was designed by [Adam Paszke](https://apaszke.github.io/posts.html). We have used it to perform pixel-wise labeling and scene-parsing. Here are [some videos of ENet in action](https://www.youtube.com/watch?v=3jq4FnO5Nco&list=PLNgy4gid0G9c4qiVBrERE_5v_b1pu-5pQ). These videos are not part of the [training dataset](https://www.cityscapes-dataset.com/).
 
 [The technical report on ENet is available here](https://arxiv.org/abs/1606.02147). ENet is a encoder plus decoder network. The encoder is a regular CNN design for categorization, while the decoder is a upsampling network designed to propagate the categories back into the original image size for segmentation. This worked used only neural networks, and no other algorithm to perform image segmentation.
 
