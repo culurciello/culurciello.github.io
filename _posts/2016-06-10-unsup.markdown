@@ -83,9 +83,9 @@ The smooth space learned by the generator suggests that the discriminator also h
 
 # learn from data models
 
-[Unsupervised learning of visual representations by solving jigsaw puzzles](http://arxiv.org/abs/1603.09246)
+[Unsupervised learning of visual representations by solving jigsaw puzzles](http://arxiv.org/abs/1603.09246) is a clever trick. The author break the image into a puzzle and train a deep neural network to solve the puzzle. The resulting network has one of the highest performance of pre-trained networks.
 
-[Unsupervised learning of visual representations from image patches and locality](https://arxiv.org/abs/1511.06811)
+[Unsupervised learning of visual representations from image patches and locality](https://arxiv.org/abs/1511.06811) is also a clever trick. Here they take two patches of the same image closely located. These patches are statistically of the same object. A third patch is taken from a random picture and location, statistically not of the same object as the other 2 patches. Then a deep neural network is trained to discriminate between 2 patches of same object or different objects. The resulting network has one of the highest performance of pre-trained networks.
 
 [Unsupervised Learning of Visual Representations using Videos](http://arxiv.org/abs/1505.00687)
 
