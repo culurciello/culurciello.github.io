@@ -16,12 +16,24 @@ Ideally, we would like to have a model that behaves more like our brain. That ne
 
 # auto-encoders
 
+Originated from [Bruno Olshausen and David Field](http://redwood.psych.cornell.edu/papers/olshausen_field_1997.pdf) in 1996. This paper showed that coding theory can be applied to the receptive field in the visual cortex. They showed that the primary visual vortex (V1) in our brain uses principles of sparsity to create a minimal set of base functions that can be also used to reconstruct the input image.
+
+A great review is [here](https://piotrmirowski.files.wordpress.com/2014/03/piotrmirowski_2014_reviewautoencoders.pdf)
+
 
 # stacked unsupervised layers
 
 
+One technique uses k-means clustering techniques to learn filters at multiple layers. 
+
+Our group named this technique: [Clustering Learning](http://arxiv.org/abs/1301.2820), [Clustering Connections](http://arxiv.org/abs/1306.0152) and [Convolutional Clustering](http://arxiv.org/abs/1511.06241), which very recently achieved very good results on the popular STL-10 unsupervised dataset.
+
+Our work in this area was developed independently to the work of [Adam Coates and Andrew Ng](http://www-cs.stanford.edu/~acoates/papers/coatesng_nntot2012.pdf).
+
+
 # generative models
 
+Generative models try to create a categorization (discriminator or encoder) network and a model that generates images (generative model) at the same time. 
 
 [This generative adversarial model](https://arxiv.org/abs/1511.06434) instantiates a
 A good explanation of this model is also [here](https://ishmaelbelghazi.github.io/ALI/) where this digram comes about:
