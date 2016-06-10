@@ -13,6 +13,12 @@ Now, think about how you got trained when you were very little. Yes you got some
 
 Ideally, we would like to have a model that behaves more like our brain. That needs just a few labels here and there to make sense of the multitude of classes of the world. And with classes I mean objects classes, action classes, environment classes, object parts classes, and the list goes on and on.
 
+# general concepts
+
+The main goal of unsupervised learning research is to pre-train a model  (called "discriminator" or "encoder") network to be used for other tasks. The encoder features should be general enough to be used in a categorization tasks: for example to train on ImageNet and provide good results, as close as possible as supervised models.
+
+Up to date, supervised models always perform better than unsupervised pre-trained models. That is because the supervision allows to model to better encode the characteristics of the dataset. But supervision can also be decremental if the model is then applied to other tasks. In this regards, the hope is that unsupervised training can provide more general features for learning to perform any tasks.
+
 
 # auto-encoders
 
@@ -33,14 +39,36 @@ Our work in this area was developed independently to the work of [Adam Coates an
 
 # generative models
 
-Generative models try to create a categorization (discriminator or encoder) network and a model that generates images (generative model) at the same time. 
+Generative models try to create a categorization (discriminator or encoder) network and a model that generates images (generative model) at the same time. This method originated from the pioneering work of [Ian Goodfellow and Yoshua Bengio](http://arxiv.org/abs/1406.2661).
 
-[This generative adversarial model](https://arxiv.org/abs/1511.06434) instantiates a
-A good explanation of this model is also [here](https://ishmaelbelghazi.github.io/ALI/) where this digram comes about:
+The generative adversarial model by Alec Radford, Luke Metz, Soumith Chintala named [DCGAN](https://arxiv.org/abs/1511.06434) instantiates one such model that got really awesome results. 
+
+A good explanation of this model is [here](https://ishmaelbelghazi.github.io/ALI/) where this digram comes from:
 
 ![](/assets/unsup/gan_simple.svg)
 
-This method originated from the pioneering work of [Ian Goodfellow and Yoshua Bengio](http://arxiv.org/abs/1406.2661).
+DCGAN wdiscriminator is designed to tell if an input image is real, or coming from the dataset, or fake, coming from the generator. The generator takes a random noise vector (say 512 values) at the input and generates an image.
+
+In the DCGAN, this generator network is:
+
+![](/assets/unsup/dcgan.jpg)
+
+while the discriminator is a standard neural network. See code below for details.
+
+The key is to train both networks in parallel while not completely copying the dataset. You want these to generalize to unseen examples, so learning the dataset would not be of use.
+
+Training code of DCGAN in Torch7 is also [provided](https://github.com/soumith/dcgan.torch), which allow for [great experimentation](https://www.facebook.com/yann.lecun/posts/10153269667222143). 
+
+After both generator and discriminator network are trained, one can use both. The main goal was to train a nice discriminator network to be used for other tasks, for example categorization on other datasets. The generator can be used to generate images out of random vectors. These images have very interesting properties. First of all, they offer smooth transitions from the input space. See an example here, where they show the images produced by moving between 9 random input vectors: 
+
+![](/assets/unsup/dcgan_int.jpg)
+
+Also the input vector space offers mathematical properties, showing the learned features are organized by similarity:
+
+![](/assets/unsup/dcgan_math.jpg)
+
+The smooth space learned by the generator suggests that the discriminator also has similar properties, making it a great general feature extractor for encoding images.
+
 
 
 # learn from data models
