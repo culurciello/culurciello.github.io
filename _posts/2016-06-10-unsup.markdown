@@ -1,0 +1,24 @@
+---
+layout: post
+title:  "Navigating the unsupervised learning landscape"
+date:   2016-06-10 07:02:01
+categories: tech
+---
+
+Unsupervised learning is the Holy Grail of Deep Learning. The goal of unsupervised learning is to create general systems that can be trained with little data. Very little data. 
+
+Today Deep Learning models are trained on large supervised datasets. Meaning that for each data, there is a corresponding label. In the case of the popular ImageNet dataset, there are 1M images labeled by humans. 1000 images for each of the 1000 classes. It can take some effort to create such dataset, many months of work. Imagine now creating a dataset with 1M classes. Imagine having to label each frame of a video dataset, with 100M frames. This is not scalable.
+
+Now, think about how you got trained when you were very little. Yes you got some supervision, but when your parents told you that is a "cat" they would not tell you "cat" every split second you were looking at a cat for the rest of your life! That is what supervised learning is today: I tell you over and over what a "cat" is, maybe 1M times. Then your Deep Learning model gets it.
+
+Ideally, we would like to have a model that behaves more like our brain. That needs just a few labels here and there to make sense of the multitude of classes of the world. And with classes I mean objects classes, action classes, environment classes, object parts classes, and the list goes on and on.
+
+
+
+[This generative adversarial model](https://arxiv.org/abs/1511.06434) instantiates a
+A good explanation of this model is also [here](https://ishmaelbelghazi.github.io/ALI/) where this digram comes about:
+
+![](/assets/unsup/gan_simple.svg)
+
+
+
