@@ -22,7 +22,7 @@ Up to date, supervised models always perform better than unsupervised pre-traine
 
 # auto-encoders
 
-Originated from [Bruno Olshausen and David Field](http://redwood.psych.cornell.edu/papers/olshausen_field_1997.pdf) in 1996. This paper showed that coding theory can be applied to the receptive field in the visual cortex. They showed that the primary visual vortex (V1) in our brain uses principles of sparsity to create a minimal set of base functions that can be also used to reconstruct the input image.
+Originated largely from [Bruno Olshausen and David Field](http://redwood.psych.cornell.edu/papers/olshausen_field_1997.pdf) in 1996. This paper showed that coding theory can be applied to the receptive field in the visual cortex. They showed that the primary visual vortex (V1) in our brain uses principles of sparsity to create a minimal set of base functions that can be also used to reconstruct the input image.
 
 A great review is [here](https://piotrmirowski.files.wordpress.com/2014/03/piotrmirowski_2014_reviewautoencoders.pdf)
 
@@ -53,19 +53,19 @@ Generative models try to create a categorization (discriminator or encoder) netw
 
 The generative adversarial model by Alec Radford, Luke Metz, Soumith Chintala named [DCGAN](https://arxiv.org/abs/1511.06434) instantiates one such model that got really awesome results. 
 
-A good explanation of this model is [here](https://ishmaelbelghazi.github.io/ALI/) where this digram comes from:
+A good explanation of this model is [here](https://ishmaelbelghazi.github.io/ALI/). See this system diagram:
 
 ![](/assets/unsup/gan_simple.svg)
 
-DCGAN wdiscriminator is designed to tell if an input image is real, or coming from the dataset, or fake, coming from the generator. The generator takes a random noise vector (say 512 values) at the input and generates an image.
+The DCGAN discriminator is designed to tell if an input image is real, or coming from the dataset, or fake, coming from the generator. The generator takes a random noise vector (say 1024 values) at the input and generates an image.
 
-In the DCGAN, this generator network is:
+In the DCGAN, the generator network is:
 
 ![](/assets/unsup/dcgan.jpg)
 
 while the discriminator is a standard neural network. See code below for details.
 
-The key is to train both networks in parallel while not completely copying the dataset. You want these to generalize to unseen examples, so learning the dataset would not be of use.
+The key is to train both networks in parallel while not completely overfitting and thus copying the dataset. The learned features need to generalize to unseen examples, so learning the dataset would not be of use.
 
 Training code of DCGAN in Torch7 is also [provided](https://github.com/soumith/dcgan.torch), which allow for [great experimentation](https://www.facebook.com/yann.lecun/posts/10153269667222143). 
 
