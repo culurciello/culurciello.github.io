@@ -43,6 +43,9 @@ Our group named this technique: [Clustering Learning](http://arxiv.org/abs/1301.
 
 Our work in this area was developed independently to the work of [Adam Coates and Andrew Ng](http://www-cs.stanford.edu/~acoates/papers/coatesng_nntot2012.pdf).
 
+Restricted Boltzmann machines (RBMs), deep Boltzmann
+machines (DBMs), [Deep belief networks (DBNs)](https://www.cs.toronto.edu/~hinton/absps/fastnc.pdf) have been notoriously hard to train because of the numerical difficulties of solving their partition function. As such they have not been used widely to solve problems.
+
 
 # generative models
 
