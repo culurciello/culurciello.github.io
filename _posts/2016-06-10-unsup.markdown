@@ -75,7 +75,9 @@ The smooth space learned by the generator suggests that the discriminator also h
 
 # learn from data models
 
-[Learning from image patches and locality](https://arxiv.org/abs/1511.06811)
+[Unsupervised learning of visual representations by solving jigsaw puzzles](http://arxiv.org/abs/1603.09246)
+
+[Unsupervised learning of visual representations from image patches and locality](https://arxiv.org/abs/1511.06811)
 
 
 
