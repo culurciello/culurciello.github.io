@@ -26,6 +26,8 @@ Originated from [Bruno Olshausen and David Field](http://redwood.psych.cornell.e
 
 A great review is [here](https://piotrmirowski.files.wordpress.com/2014/03/piotrmirowski_2014_reviewautoencoders.pdf)
 
+Yann LeCun group also worked a lot in [this area](http://www.cs.nyu.edu/~yann/research/deep/). In this page you can see a great animation of how sparse filters V1-like are learned.
+
 
 # stacked unsupervised layers
 
