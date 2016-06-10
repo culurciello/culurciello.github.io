@@ -14,11 +14,29 @@ Now, think about how you got trained when you were very little. Yes you got some
 Ideally, we would like to have a model that behaves more like our brain. That needs just a few labels here and there to make sense of the multitude of classes of the world. And with classes I mean objects classes, action classes, environment classes, object parts classes, and the list goes on and on.
 
 
+# auto-encoders
+
+
+# stacked unsupervised layers
+
+
+# generative models
+
 
 [This generative adversarial model](https://arxiv.org/abs/1511.06434) instantiates a
 A good explanation of this model is also [here](https://ishmaelbelghazi.github.io/ALI/) where this digram comes about:
 
 ![](/assets/unsup/gan_simple.svg)
 
+This method originated from the pioneering work of [Ian Goodfellow and Yoshua Bengio](http://arxiv.org/abs/1406.2661).
 
+
+# learn from data models
+
+[Learning from image patches and locality](https://arxiv.org/abs/1511.06811)
+
+
+
+
+# the future
 
