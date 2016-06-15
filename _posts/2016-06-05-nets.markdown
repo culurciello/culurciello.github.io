@@ -200,6 +200,16 @@ Our team set up to combine all the features of the recent architectures into a v
 ENet was designed to use the minimum number of resources possible from the start. As such it achieves such a small footprint that both encoder and decoder network together only occupies 0.7 MB with fp16 precision. 
 Even at this small size, ENet is similar or above other pure neural network solutions in accuracy of segmentation.
 
+# An analysis of modules
+A systematic evaluation of CNN modules [has been presented](https://arxiv.org/abs/1606.02228). The found out that is advantageous to use:
+
+• use ELU non-linearity without batchnorm or ReLU with it.
+• apply a learned colorspace transformation of RGB.
+• use the linear learning rate decay policy.
+• use a sum of the average and max pooling layers.
+• use mini-batch size around 128 or 256. If this is too big for your GPU, decrease the learning rate proportionally to the batch size.
+• use fully-connected layers as convolutional and average the predictions for the final decision.• when investing in increasing training set size, check if a plateau has not been reach.• cleanliness of the data is more important then the size.• if you cannot increase the input image size, reduce the stride in the con-sequent layers, it has roughly the same effect.• if your network has a complex and highly optimized architecture, like e.g.GoogLeNet, be careful with modifications.
+
 
 # The future
 We believe that crafting neural network architectures is of paramount importance for the progress of the Deep Learning field. Our group highly recommends reading carefully and understanding all the papers in this post.
