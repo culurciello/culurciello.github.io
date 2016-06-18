@@ -211,6 +211,12 @@ A systematic evaluation of CNN modules [has been presented](https://arxiv.org/ab
 • use fully-connected layers as convolutional and average the predictions for the final decision.• when investing in increasing training set size, check if a plateau has not been reach.• cleanliness of the data is more important then the size.• if you cannot increase the input image size, reduce the stride in the con-sequent layers, it has roughly the same effect.• if your network has a complex and highly optimized architecture, like e.g.GoogLeNet, be careful with modifications.
 
 
+
+# Other notable architectures
+
+[FractalNet](https://arxiv.org/abs/1605.07648) uses a recursive architecture, that was not tested on ImageNet, and is a derivative or the more general ResNet.
+
+
 # The future
 We believe that crafting neural network architectures is of paramount importance for the progress of the Deep Learning field. Our group highly recommends reading carefully and understanding all the papers in this post.
 
