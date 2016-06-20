@@ -157,7 +157,7 @@ This is great, but as you can see not much different that the previous regimes u
 
 Then we noticed that all ENet are ResNet-like network models, and so we looked at [this FB training script](https://github.com/facebook/fb.resnet.torch). Here they used a linear LR and a fixed WD of 1e-4. Adopting this and testing on ENet V7 gave us the red and orange plots:
 
-![](/assets/enet/v67.png)
+![](/assets/enet/v2367.png)
 
 
 Using this learning rate function:
