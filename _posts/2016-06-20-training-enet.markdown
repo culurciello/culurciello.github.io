@@ -123,6 +123,38 @@ Then we read [this paper](https://arxiv.org/abs/1606.02228) suggesting that line
 
 ![](/assets/enet/v236.png)
 
+The function to update the weight is given below:
 
+```lua
+local lr, wd
+local function paramsForEpoch(epoch)
+      if opt.LR ~= 0.0 and epoch == 1 then -- if manually specified
+         lr = opt.LR
+         return { }
+      elseif epoch == 1 then
+         lr = 0.1
+         return {}
+      else
+        lr = lr * (1-epoch/opt.nEpochs) --  math.pow( 0.9, epoch - 1)
+      end
+     local regimes = {
+         -- start, end,     WD,
+         {  1,     18,   5e-4, },
+         { 19,     29,  5e-4  },
+         { 30,     43,    0 },
+         { 44,     52,   0 },
+         { 53,    1e8,  0 },
+     }
+     for _, row in ipairs(regimes) do
+         if epoch >= row[1] and epoch <= row[2] then
+             return { learningRate = lr , weightDecay=row[3] }, true
+         end
+     end
+ end
+```
+
+But then we noticed that all ENet are ResNet-like network models, and so we looked at [this FB training script](https://github.com/facebook/fb.resnet.torch). Here they used a linear LR and a fixed WD of 1e-4. Adopting this and testing on ENet V7 gave us the red and orange plots:
+
+![](/assets/enet/v2367.png)
 
 
