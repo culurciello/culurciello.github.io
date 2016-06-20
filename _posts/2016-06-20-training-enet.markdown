@@ -153,8 +153,31 @@ local function paramsForEpoch(epoch)
  end
 ```
 
-But then we noticed that all ENet are ResNet-like network models, and so we looked at [this FB training script](https://github.com/facebook/fb.resnet.torch). Here they used a linear LR and a fixed WD of 1e-4. Adopting this and testing on ENet V7 gave us the red and orange plots:
+This is great, but as you can see not much different that the previous regimes used in V3.
+
+Then we noticed that all ENet are ResNet-like network models, and so we looked at [this FB training script](https://github.com/facebook/fb.resnet.torch). Here they used a linear LR and a fixed WD of 1e-4. Adopting this and testing on ENet V7 gave us the red and orange plots:
 
 ![](/assets/enet/v2367.png)
 
 
+Using this learning rate function:
+
+```lua
+local lr, wd
+local function paramsForEpoch(epoch)
+      if opt.LR ~= 0.0 and epoch == 1 then -- if manually specified
+         lr = opt.LR
+         return { }
+      elseif epoch == 1 then
+         lr = 0.1
+         return { learningRate = lr, weightDecay=1e-4 }
+      else
+        lr = lr * math.pow( 0.9, epoch - 1)
+        return { learningRate = lr, weightDecay=1e-4 }, true
+      end
+ end
+```
+
+This gave us the best results. 
+
+Moving WD to 0 after ~10 epochs may given even better results... under test.
