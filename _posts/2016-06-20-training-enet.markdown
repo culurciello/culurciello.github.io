@@ -80,15 +80,15 @@ Also ENet V3 was modified to have more output features: 512 like ResNet 18 and 3
    initial_block:add(cudnn.SpatialConvolution(3, 13, 3, 3, 2, 2, 1, 1))
    initial_block:add(cudnn.SpatialMaxPooling(2, 2, 2, 2))
 
-   features:add(initial_block)                                         -- 128x256
+   features:add(initial_block) -- size of 112x112
    features:add(nn.JoinTable(2)) -- can't use Concat, because SpatialConvolution needs contiguous gradOutput
    features:add(nn.SpatialBatchNormalization(16, 1e-3))
    features:add(nn.PReLU(16))
-   features:add(bottleneck(16, 64, true))                              -- 64x128
+   features:add(bottleneck(16, 64, true)) -- size of 56x56
    for i = 1,4 do
       features:add(bottleneck(64, 64))
    end
-   features:add(bottleneck(64, 128, true))                             -- 32x64
+   features:add(bottleneck(64, 128, true)) -- size of 28x28
    
    -- pass 1:
    features:add(cbottleneck(128, 128))
@@ -99,7 +99,7 @@ Also ENet V3 was modified to have more output features: 512 like ResNet 18 and 3
    features:add(xxdbottleneck(128, 128))
    features:add(wbottleneck(128, 128))
    features:add(xxxdbottleneck(128, 256))
-   features:add(bottleneck(256, 256, true))
+   features:add(bottleneck(256, 256, true)) -- size of 14x14
 
    --pass 2:
    features:add(cbottleneck(256, 256))
@@ -110,14 +110,19 @@ Also ENet V3 was modified to have more output features: 512 like ResNet 18 and 3
    features:add(xxdbottleneck(256, 256))
    features:add(wbottleneck(256, 256))
    features:add(xxxdbottleneck(256, 512))
-   features:add(bottleneck(512, 512, true))
+   features:add(bottleneck(512, 512, true)) -- size of 7x7
 
 
    -- global average pooling 1x1
    features:add(cudnn.SpatialAveragePooling(7, 7, 1, 1, 0, 0))
 ```
 
-As a result, you can see ENet V3 training faster, about 2x faster! Also it does a bit better in performance, given the model now has more output features!
+As a result (purple top left plots), you can see ENet V3 training faster, about 2x faster! Also it does a bit better in performance, given the model now has more output features!
+
+Then we read [this paper](https://arxiv.org/abs/1606.02228) suggesting that linear learning rate updates may be better. So we tried this in ENet V6, basically identical to V3. Here are the results (green plots):
+
+![](/assets/enet/v236.png)
+
 
 
 
