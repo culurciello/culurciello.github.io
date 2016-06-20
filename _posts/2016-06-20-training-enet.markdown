@@ -46,7 +46,8 @@ If you use Soumith training script, you will get the following results:
 
 ![](/assets/enet/v23.png)
 
-As you can see ENet V2 trains slowly, because the training script use a fairly conservative learning rate (LR) and weight decay (WD). See how long training is flat in the 1st and 2nd regime! Too much wasted time.
+As you can see ENet V2 trains slowly, because the training script use a fairly conservative learning rate (LR) and weight decay (WD). 
+
 
 ```lua
     local regimes = {
@@ -58,6 +59,8 @@ As you can see ENet V2 trains slowly, because the training script use a fairly c
         { 53,    1e8,   1e-4,   0 },
     }
 ```
+
+See how long training is flat in the 1st and 2nd regime! Too much wasted time.
 
 So for ENet V3, we decided to modify the training regime to go faster:
 
