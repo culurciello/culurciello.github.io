@@ -163,7 +163,7 @@ Then we noticed that all ENet are ResNet-like network models, and so we looked a
 ![](/assets/enet/v2367.png)
 
 
-This gave us the best results, using this learning rate function:
+This gave us the best results, and now it trains in ~ 10 epochs, which is 4x faster than what we started with. We used this learning rate function:
 
 ```lua
 local lr, wd
