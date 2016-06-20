@@ -160,7 +160,7 @@ Then we noticed that all ENet are ResNet-like network models, and so we looked a
 ![](/assets/enet/v2367.png)
 
 
-Using this learning rate function:
+This gave us the best results, using this learning rate function:
 
 ```lua
 local lr, wd
@@ -178,6 +178,37 @@ local function paramsForEpoch(epoch)
  end
 ```
 
-This gave us the best results. 
+ENet V7 is a bit different. It removed all dilated and asymmetric convolutions and instead uses ResNet-like modules. ENet V7 model is here:
+
+
+```lua
+   local initial_block = nn.ConcatTable(2)
+   initial_block:add(cudnn.SpatialConvolution(3, 13, 3, 3, 2, 2, 1, 1))
+   initial_block:add(cudnn.SpatialMaxPooling(2, 2, 2, 2))
+
+   features:add(initial_block) -- 112x112
+   features:add(nn.JoinTable(2)) -- can't use Concat, because SpatialConvolution needs contiguous gradOutput
+   features:add(nn.SpatialBatchNormalization(16, 1e-3))
+   features:add(nn.PReLU(16))
+   features:add(bottleneck(16, 64, true)) -- 56x56
+
+   for i = 1,5 do
+      features:add(bottleneck(64, 64))
+   end
+   features:add(bottleneck(64, 128, true)) -- 28x28
+
+   for i = 1,5 do
+      features:add(bottleneck(128, 128))
+   end
+   features:add(bottleneck(128, 256, true)) -- 14x14
+
+   for i = 1,5 do
+      features:add(bottleneck(256, 256))
+   end
+   features:add(bottleneck(256, 512, true)) -- 7x7
+
+   -- global average pooling 1x1
+   features:add(cudnn.SpatialAveragePooling(7, 7, 1, 1, 0, 0))
+```   
 
 Moving WD to 0 after ~10 epochs may given even better results... under test.
