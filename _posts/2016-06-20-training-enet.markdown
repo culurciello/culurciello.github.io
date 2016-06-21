@@ -42,7 +42,13 @@ local initial_block = nn.ConcatTable(2)
    features:add(cudnn.SpatialAveragePooling(7, 7, 1, 1, 0, 0))
 ```
 
-If you use Soumith training script, you will get the following results:
+We used Soumith training script invoked with the following command:
+
+```
+th main.lua -data /media/SuperSSD/ILSVRC2012 -backend cudnn -netType enet -nGPU 4 -batchSize 128 -nDonkeys 12
+```
+
+To justify these choices: we have 4 GPUs in our machine and 6 processors with 12 total threads, so we use 12 Donkeys to load data. That makes a big difference in loading data and overall time. Then you will get the following results:
 
 ![](/assets/enet/v23.png)
 
