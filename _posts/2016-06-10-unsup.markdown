@@ -79,7 +79,7 @@ Also the input vector space offers mathematical properties, showing the learned 
 
 The smooth space learned by the generator suggests that the discriminator also has similar properties, making it a great general feature extractor for encoding images. This should help the typical problem of CNN trained in discontinuous image datasets, where [adversarial noise makes them fail](https://arxiv.org/abs/1312.6199).
 
-More on generative models is also [here](https://openai.com/blog/generative-models/).
+More on generative models is also [here](https://openai.com/blog/generative-models/) and [here](https://code.facebook.com/posts/1587249151575490/a-path-to-unsupervised-learning-through-adversarial-networks/).
 
 
 # learn-from-data models
