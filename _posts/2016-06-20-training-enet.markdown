@@ -181,6 +181,8 @@ local function paramsForEpoch(epoch)
  end
 ```
 
+This learning rate update was recommended by SangPil Kim.
+
 ENet V7 is a bit different. It removed all dilated and asymmetric convolutions and instead uses ResNet-like modules. ENet V7 model is here:
 
 
