@@ -217,3 +217,29 @@ ENet V7 is a bit different. It removed all dilated and asymmetric convolutions a
 ```   
 
 Moving WD to 0 after ~10 epochs may given even better results... under test.
+
+
+# Initial block
+
+The initial bock of ENet concatenates the input and a filtered version of the input:
+
+```lua
+local initial_block = nn.ConcatTable(2)
+   initial_block:add(cudnn.SpatialConvolution(3, 13, 3, 3, 2, 2, 1, 1))
+   initial_block:add(cudnn.SpatialMaxPooling(2, 2, 2, 2))
+...
+```
+
+Adding more features (29 instead of 13) to the convolution did not have any improvements on accuracy. 
+
+
+
+Notice this block is different from ResNet, where instead they use this kind of initial block:
+
+```lua
+   features:add(cudnn.SpatialConvolution(3, 64, 7, 7, 2, 2, 3, 3))
+   features:add(cudnn.SpatialMaxPooling(3, 3, 2, 2))
+   features:add(nn.SpatialBatchNormalization(64, 1e-3))
+   features:add(nn.ReLU(64))
+```
+
