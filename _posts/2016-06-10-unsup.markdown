@@ -88,7 +88,10 @@ The smooth space learned by the generator suggests that the discriminator also h
 [Unsupervised learning of visual representations from image patches and locality](https://arxiv.org/abs/1511.06811) is also a clever trick. Here they take two patches of the same image closely located. These patches are statistically of the same object. A third patch is taken from a random picture and location, statistically not of the same object as the other 2 patches. Then a deep neural network is trained to discriminate between 2 patches of same object or different objects. The resulting network has one of the highest performance of pre-trained networks.
 
 
-[Unsupervised learning of visual representations from stereo image reconstructions](http://arxiv.org/abs/1604.03650) takes a stereo image, say the left frame, and reconstruct the right frame.
+[Unsupervised learning of visual representations from stereo image reconstructions](http://arxiv.org/abs/1604.03650) takes a stereo image, say the left frame, and reconstruct the right frame. Albeit this work was not aimed at unsupervised learning, it can be!
+
+
+[Unsupervised Learning of Visual Representations using surrogate categories](http://arxiv.org/abs/1406.6909) uses patches of images to create a very large number of surrogate classes. These image patches are then augmented, and then used to train a supervised network based on the augmented surrogate classes. This gives one of the best results in unsupervised feature learning. 
 
 [Unsupervised Learning of Visual Representations using Videos](http://arxiv.org/abs/1505.00687)
 
