@@ -107,7 +107,9 @@ These models learn directly from unlabeled data, by devising unsupervised learni
 [Unsupervised Learning of Visual Representations using Videos](http://arxiv.org/abs/1505.00687) uses an encoder-decoder LSTM pair. The encoder LSTM runs through a sequence of video frames to generate an internal representation. This representation is then decoded through another LSTM to produce a target sequence. To make this unsupervised, one way is to predict the same sequence as the input. Another way is to predict
 future frames.
 
-Another paper (MIT: Vondrick, Torralba) using videos with very compelling results is [here](http://arxiv.org/abs/1504.08023). This work is from April 2015! The great idea behind this work is to predict the representation of future frames from a video input. This is an elegant approach.
+Another paper (MIT: Vondrick, Torralba) using videos with very compelling results is [here](http://arxiv.org/abs/1504.08023). This work is from April 2015! The great idea behind this work is to predict the representation of future frames from a video input. This is an elegant approach. The model used is here:
+
+![](/assets/unsup/mitvideonet.jpg)
 
 
 
