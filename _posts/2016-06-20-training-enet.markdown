@@ -222,7 +222,7 @@ ENet V7 is a bit different. It removed all dilated and asymmetric convolutions a
    features:add(cudnn.SpatialAveragePooling(7, 7, 1, 1, 0, 0))
 ```   
 
-Moving WD to 0 after ~10 epochs may given even better results... under test.
+Changing WD from 1e-4 to 0 after 7 epochs did not give better results.
 
 
 # Initial block
@@ -248,4 +248,13 @@ Notice this block is different from ResNet, where instead they use this kind of 
    features:add(nn.SpatialBatchNormalization(64, 1e-3))
    features:add(nn.ReLU(64))
 ```
+
+
+# Comparison to ResNet
+
+The current models of ENet tested here are much smaller than ResNet 34 or 50 in the number of features at each layer.
+
+You can see ResNet model [here](https://github.com/facebook/fb.resnet.torch/blob/master/models/resnet.lua). 
+
+Bottom line is that ENet gives about 60% top-1 accuracy, while ResNet 34 is ~70%. But ResNet is also 4-5 times slower in training and forward time.
 
