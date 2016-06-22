@@ -81,6 +81,14 @@ The smooth space learned by the generator suggests that the discriminator also h
 
 Interesting summary on generative models are also [here](https://openai.com/blog/generative-models/) and [here](https://code.facebook.com/posts/1587249151575490/a-path-to-unsupervised-learning-through-adversarial-networks/).
 
+Another very interesting example is given [here](https://arxiv.org/abs/1605.05396) where the authors use generative adversarial training to learn to produce images out of textual descriptions. See this example:
+
+![](/assets/unsup/gatexamples.jpg)
+
+What I appreciate the most about this work is that the network is using the textual description as input to the generator, as opposed to random vectors, and can thus control accurately the output of the generator. A picture of the network model is here:
+
+![](/assets/unsup/gatnet.jpg)
+
 
 # Learn-from-data models
 
