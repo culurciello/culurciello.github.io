@@ -79,6 +79,8 @@ Also the input vector space offers mathematical properties, showing the learned 
 
 The smooth space learned by the generator suggests that the discriminator also has similar properties, making it a great general feature extractor for encoding images. This should help the typical problem of CNN trained in discontinuous image datasets, where [adversarial noise makes them fail](https://arxiv.org/abs/1312.6199).
 
+A [recent update](https://arxiv.org/pdf/1606.03498v1.pdf) to the GAN training, provided a 21% error rate on CIFAR-10 with only 1000 labeled samples.
+
 A recent paper on [infoGAN](https://arxiv.org/abs/1606.03657) was able to produce very sharp images with image features that can be dis-entangled and have more interesting meaning. They, however, did not report the performance of the learned features in a task or dataset for comparison.
 
 Interesting summary on generative models are also [here](https://openai.com/blog/generative-models/) and [here](https://code.facebook.com/posts/1587249151575490/a-path-to-unsupervised-learning-through-adversarial-networks/).
