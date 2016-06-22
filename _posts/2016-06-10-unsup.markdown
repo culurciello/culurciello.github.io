@@ -13,14 +13,14 @@ Now, think about how you got trained when you were very little. Yes you got some
 
 Ideally, we would like to have a model that behaves more like our brain. That needs just a few labels here and there to make sense of the multitude of classes of the world. And with classes I mean objects classes, action classes, environment classes, object parts classes, and the list goes on and on.
 
-# general concepts
+# General concepts
 
 The main goal of unsupervised learning research is to pre-train a model  (called "discriminator" or "encoder") network to be used for other tasks. The encoder features should be general enough to be used in a categorization tasks: for example to train on ImageNet and provide good results, as close as possible as supervised models.
 
 Up to date, supervised models always perform better than unsupervised pre-trained models. That is because the supervision allows to model to better encode the characteristics of the dataset. But supervision can also be decremental if the model is then applied to other tasks. In this regards, the hope is that unsupervised training can provide more general features for learning to perform any tasks.
 
 
-# auto-encoders
+# Auto-encoders
 
 Originated largely from [Bruno Olshausen and David Field](http://redwood.psych.cornell.edu/papers/olshausen_field_1997.pdf) in 1996. This paper showed that coding theory can be applied to the receptive field in the visual cortex. They showed that the primary visual vortex (V1) in our brain uses principles of sparsity to create a minimal set of base functions that can be also used to reconstruct the input image.
 
@@ -34,10 +34,10 @@ Auto-encoders methods are also called "direct-mapping" methods.
 
 
 
-# stacked unsupervised layers
+# Stacked unsupervised layers
 
 
-One technique uses k-means clustering techniques to learn filters at multiple layers. 
+One technique uses k-means clustering to learn filters at multiple layers. 
 
 Our group named this technique: [Clustering Learning](http://arxiv.org/abs/1301.2820), [Clustering Connections](http://arxiv.org/abs/1306.0152) and [Convolutional Clustering](http://arxiv.org/abs/1511.06241), which very recently achieved very good results on the popular STL-10 unsupervised dataset.
 
@@ -47,7 +47,7 @@ Restricted Boltzmann machines (RBMs), deep Boltzmann
 machines (DBMs), [Deep belief networks (DBNs)](https://www.cs.toronto.edu/~hinton/absps/fastnc.pdf) have been notoriously hard to train because of the numerical difficulties of solving their partition function. As such they have not been used widely to solve problems.
 
 
-# generative models
+# Generative models
 
 Generative models try to create a categorization (discriminator or encoder) network and a model that generates images (generative model) at the same time. This method originated from the pioneering work of [Ian Goodfellow and Yoshua Bengio](http://arxiv.org/abs/1406.2661).
 
@@ -79,10 +79,10 @@ Also the input vector space offers mathematical properties, showing the learned 
 
 The smooth space learned by the generator suggests that the discriminator also has similar properties, making it a great general feature extractor for encoding images. This should help the typical problem of CNN trained in discontinuous image datasets, where [adversarial noise makes them fail](https://arxiv.org/abs/1312.6199).
 
-More on generative models is also [here](https://openai.com/blog/generative-models/) and [here](https://code.facebook.com/posts/1587249151575490/a-path-to-unsupervised-learning-through-adversarial-networks/).
+Interesting summary on generative models are also [here](https://openai.com/blog/generative-models/) and [here](https://code.facebook.com/posts/1587249151575490/a-path-to-unsupervised-learning-through-adversarial-networks/).
 
 
-# learn-from-data models
+# Learn-from-data models
 
 These models learn directly from unlabeled data, by devising unsupervised learning tasks that do not require labels, and learning aims at solving the task.
 
@@ -99,10 +99,12 @@ These models learn directly from unlabeled data, by devising unsupervised learni
 [Unsupervised Learning of Visual Representations using Videos](http://arxiv.org/abs/1505.00687) uses an encoder-decoder LSTM pair. The encoder LSTM runs through a sequence of video frames to generate an internal representation. This representation is then decoded through another LSTM to produce a target sequence. To make this unsupervised, one way is to predict the same sequence as the input. Another way is to predict
 future frames.
 
+Another paper (MIT: Vondrick, Torralba) using videos with very compelling results is [here](http://arxiv.org/abs/1504.08023). This work is from April 2015!
 
 
 
-# the future
+
+# The future
 
 Is your to make.
 
