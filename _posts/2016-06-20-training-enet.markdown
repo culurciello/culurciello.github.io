@@ -90,7 +90,7 @@ Also ENet V3 was modified to have more output features: 512 like ResNet 18 and 3
    initial_block:add(cudnn.SpatialMaxPooling(2, 2, 2, 2))
 
    features:add(initial_block) -- size of 112x112
-   features:add(nn.JoinTable(2)) -- can't use Concat, because SpatialConvolution needs contiguous gradOutput
+   features:add(nn.JoinTable(2))
    features:add(nn.SpatialBatchNormalization(16, 1e-3))
    features:add(nn.PReLU(16))
    features:add(bottleneck(16, 64, true)) -- size of 56x56
@@ -198,7 +198,7 @@ ENet V7 is a bit different. It removed all dilated and asymmetric convolutions a
    initial_block:add(cudnn.SpatialMaxPooling(2, 2, 2, 2))
 
    features:add(initial_block) -- 112x112
-   features:add(nn.JoinTable(2)) -- can't use Concat, because SpatialConvolution needs contiguous gradOutput
+   features:add(nn.JoinTable(2))
    features:add(nn.SpatialBatchNormalization(16, 1e-3))
    features:add(nn.PReLU(16))
    features:add(bottleneck(16, 64, true)) -- 56x56
@@ -225,36 +225,170 @@ ENet V7 is a bit different. It removed all dilated and asymmetric convolutions a
 Changing WD from 1e-4 to 0 after 7 epochs did not give better results.
 
 
-# Initial block
 
-The initial bock of ENet concatenates the input and a filtered version of the input:
 
-```lua
-local initial_block = nn.ConcatTable(2)
+# a balance of power
+
+
+After a few experiments, ENet V12 gave really good results. Here is the model:
+
+```
+   local initial_block = nn.ConcatTable(2)
    initial_block:add(cudnn.SpatialConvolution(3, 13, 3, 3, 2, 2, 1, 1))
    initial_block:add(cudnn.SpatialMaxPooling(2, 2, 2, 2))
-...
+
+   features:add(initial_block) -- 112x112
+   features:add(nn.JoinTable(2))
+   features:add(nn.SpatialBatchNormalization(16, 1e-3))
+   features:add(nn.PReLU(16))
+
+   -- 1st block
+   features:add(ibottleneck(16, 64, true)) -- 56x56
+   features:add(bottleneck(64, 128))
+   features:add(bottleneck(128, 128))
+   
+   -- 2nd block: dilation of 2
+   features:add(bottleneck(128, 256, true)) -- 28x28
+   features:add(bottleneck(256, 256))
+   features:add(dbottleneck(256, 256))
+
+   -- 3rd block: dilation 4
+   features:add(bottleneck(256, 512, true)) -- 14x14
+   features:add(bottleneck(512, 512))
+   features:add(xdbottleneck(512, 512))
+
+   -- 4th block, dilation 8
+   features:add(bottleneck(512, 1024, true)) -- 7x7
+   features:add(bottleneck(1024, 1024))
+   features:add(xxdbottleneck(1024, 1024))
+
+   -- global average pooling 1x1
+   features:add(cudnn.SpatialAveragePooling(7, 7, 1, 1, 0, 0))
 ```
 
-Adding more features (29 instead of 13) to the convolution did not have any improvements on accuracy. 
 
 
+With the training regime listed below, it reached 65.1% in 17 epochs:
 
-Notice this block is different from ResNet, where instead they use this kind of initial block:
-
-```lua
-   features:add(cudnn.SpatialConvolution(3, 64, 7, 7, 2, 2, 3, 3))
-   features:add(cudnn.SpatialMaxPooling(3, 3, 2, 2))
-   features:add(nn.SpatialBatchNormalization(64, 1e-3))
-   features:add(nn.ReLU(64))
 ```
+local function paramsForEpoch(epoch)
+      if opt.LR ~= 0.0 and epoch == 1 then -- if manually specified
+         lr = opt.LR
+         return { }
+      elseif epoch == 1 then
+         lr = 0.1
+         return { learningRate = lr, weightDecay=1e-4 }
+      else
+        lr = lr * math.pow( 0.95, epoch - 1)
+        if epoch > 7 then wd = 0 else wd = 1e-4 end
+        return { learningRate = lr, weightDecay=wd }, true
+      end
+ end
+```
+
+Notice this is the same function as for V7, but with a slower 0.95 instead of 0.9 as decay exponent to the learning rate.
+
+```
+local function paramsForEpoch(epoch)
+      if opt.LR ~= 0.0 and epoch == 1 then -- if manually specified
+         lr = opt.LR
+         return { }
+      elseif epoch == 1 then
+         lr = 0.1
+         return { learningRate = lr, weightDecay=1e-4 }
+      elseif epoch > 15 then
+         lr = lr * math.pow( 0.95, epoch - 15) 
+         wd = 0 
+         return { learningRate = lr, weightDecay=wd }, true
+      else 
+         wd = 1e-4
+         return { learningRate = lr, weightDecay=wd }, true
+      end
+ end
+```
+
+We experimented with ENEt V12 with slowing down learning again, to see if it could give better results. And it did! ENet V12 reached 68.4% accuracy in approximately 30 epochs.
+
+# more experiments
+
+To experiment more on ENet, we decided to see the effect of dilation, dropout using the fast training mode in order to save time.
+
+- no dilated convolutions resulted in 64.2% in 18 epochs. This is ENet V13:
+
+	```
+	   local initial_block = nn.ConcatTable(2)
+	   initial_block:add(cudnn.SpatialConvolution(3, 13, 3, 3, 2, 2, 1, 1))
+	   initial_block:add(cudnn.SpatialMaxPooling(2, 2, 2, 2))
+	
+	   features:add(initial_block)  -- 112x112
+	   features:add(nn.JoinTable(2))
+	   features:add(nn.SpatialBatchNormalization(16, 1e-3))
+	   features:add(nn.PReLU(16))
+	
+	   -- 1st block
+	   features:add(ibottleneck(16, 64, true)) -- 56x56
+	   features:add(bottleneck(64, 128))
+	   features:add(bottleneck(128, 128))
+	
+	   -- 2nd block
+	   features:add(bottleneck(128, 256, true)) -- 28x28
+	   features:add(bottleneck(256, 256))
+	   features:add(bottleneck(256, 256))
+	
+	   -- 3rd block
+	   features:add(bottleneck(256, 512, true)) -- 14x14
+	   features:add(bottleneck(512, 512))
+	   features:add(bottleneck(512, 512))
+	
+	   -- 4th block
+	   features:add(bottleneck(512, 1024, true)) -- 7x7
+	   features:add(bottleneck(1024, 1024))
+	   features:add(bottleneck(1024, 1024))
+	
+	   -- global average pooling 1x1
+	   features:add(cudnn.SpatialAveragePooling(7, 7, 1, 1, 0, 0))
+	```
+
+- no dropout used in bottleneck resulted in 64.7% in 18 epochs for ENet V14.
+
+- The initial bock of ENet concatenates the input and a filtered version of the input:
+
+	```lua
+	local initial_block = nn.ConcatTable(2)
+	   initial_block:add(cudnn.SpatialConvolution(3, 13, 3, 3, 2, 2, 1, 1))
+	   initial_block:add(cudnn.SpatialMaxPooling(2, 2, 2, 2))
+	...
+	```
+
+	Adding more features (29 instead of 13) to the convolution did not have any improvements on accuracy. 64.7% with 29 versus 64.9 with 13 features in ENEt V17-18 (not reported here because similar to V13)
+
+
+	Notice this block is different from ResNet, where instead they use this kind of initial block:
+
+	```lua
+	   features:add(cudnn.SpatialConvolution(3, 64, 7, 7, 2, 2, 3, 3))
+	   features:add(cudnn.SpatialMaxPooling(3, 3, 2, 2))
+	   features:add(nn.SpatialBatchNormalization(64, 1e-3))
+	   features:add(nn.ReLU(64))
+	```
+
+	ENet initial block is much more efficient: 13 convolutions of 3x3 compared to 64 convolutions of 7x7, or 26x times more operations. 
+
+
+Compare these results to the V12 fast training mode reaching 65.1% in 17 epochs.
 
 
 # Comparison to ResNet
 
-The current models of ENet tested here are much smaller than ResNet 34 or 50 in the number of features at each layer.
+The best ENet gave a 68.4% (V12) accuracy on test set. ResNet 18 is 69.5% and ResNet34 is 73.2 as reported [here](https://github.com/facebook/fb.resnet.torch).
 
-You can see ResNet model [here](https://github.com/facebook/fb.resnet.torch/blob/master/models/resnet.lua). 
+ResNet 18 uses a total of 3.6 G-Ops on a 224x224 input image. ENet 1.6 G-ops on the same image. And on a 960x540 input image ResNet 18 uses 38 G-Ops, while ENet uses 16.9 G-ops on the same image. 
 
-Bottom line is that ENet gives about 60% top-1 accuracy, while ResNet 34 is ~70%. But ResNet is also 4-5 times slower in training and forward time.
+This means ENet is 2.24x more efficient that ResNet 18.
+
+
+
+
+
+
 
