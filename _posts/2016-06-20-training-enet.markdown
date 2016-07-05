@@ -375,7 +375,9 @@ To experiment more on ENet, we decided to see the effect of dilation, dropout us
 	ENet initial block is much more efficient: 13 convolutions of 3x3 compared to 64 convolutions of 7x7, or 26x times more operations. 
 
 
-Compare these results to the V12 fast training mode reaching 65.1% in 17 epochs.
+Compare these results to the V12 fast training mode reaching 65.1% in 17 epochs. Here are the learning profiles of V12:
+
+![](/assets/enet/v12.png)
 
 
 # Comparison to ResNet
