@@ -9,7 +9,7 @@ Training a novel network on the [ImageNet dataset](http://image-net.org/challeng
 
 This work is based on the model in our recent paper [ENet: A Deep Neural Network Architecture for Real-Time Semantic Segmentation](https://arxiv.org/abs/1606.02147). ENet network model is given [here](https://github.com/e-lab/ENet-training/blob/master/train/models/encoder.lua).
 
-An easy way to train a neural network model on ImageNet is to use [Torch7](http://torch.ch/) and [this training script](https://github.com/soumith/imagenet-multiGPU.torch) from (Soumith Chintala)[https://github.com/soumith]. Another great training script, also deriving from this one, is [here](https://github.com/facebook/fb.resnet.torch).
+An easy way to train a neural network model on ImageNet is to use [Torch7](http://torch.ch/) and [this training script](https://github.com/soumith/imagenet-multiGPU.torch) from [Soumith Chintala](https://github.com/soumith). Another great training script, also deriving from this one, is [here](https://github.com/facebook/fb.resnet.torch).
 
 Regardless, ENet needs to be modified to run on ImageNet images of 224x224 size. This is done by modifying a downsampling bottleneck function at the end of the last 2 modules (in the for loop). This is ENet V2:
 
