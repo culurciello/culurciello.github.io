@@ -44,6 +44,16 @@ To summarize a story, or video, one needs to create the following representation
 In other words the representation is always: actor, place, action - since we live in a causal world!!!!
 So this is what gets in our brain, and what should get into our neural net.
 
+In general the idea is to learn a representation from as many modality as possible.
+
+- video and audio 
+- use multi CNN to extract features from each modality
+- use RNN for each modality to extract sequences
+- combine features into a final classifier to solve a task
+
+ 
+
+
 # the future
 
 Is for us to make.
