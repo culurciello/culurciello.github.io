@@ -1,9 +1,11 @@
 ---
 layout: post
 title: "Neural Network Architectures"
-date: 2016-10-24 21:05:21
+date: 2016-06-04 09:05:21
 categories: tech
 ---
+
+### Note: updated on 2016-10-25
 
 Deep neural networks and Deep Learning are powerful and popular algorithms. And a lot of their success lays in the careful design of the neural network architecture. 
 
@@ -245,8 +247,3 @@ If you are interested in a comparison of neural network architecture and computa
 
 # Acknowledgments
 This post was inspired by discussions with Abhishek Chaurasia, Adam Paszke, Sangpil Kim, Alfredo Canziani and others in our e-Lab at Purdue University.
-
-
-### Note:
-
-Updated from post: 2016-06-04
