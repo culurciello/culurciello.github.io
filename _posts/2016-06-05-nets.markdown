@@ -2,7 +2,6 @@
 layout: post
 title: "Neural Network Architectures"
 date: 2016-10-24 21:05:21
-updated-from:	2016-06-04 09:05:21
 categories: tech
 ---
 
@@ -246,3 +245,8 @@ If you are interested in a comparison of neural network architecture and computa
 
 # Acknowledgments
 This post was inspired by discussions with Abhishek Chaurasia, Adam Paszke, Sangpil Kim, Alfredo Canziani and others in our e-Lab at Purdue University.
+
+
+### Note:
+
+Updated from post: 2016-06-04
