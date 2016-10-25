@@ -5,6 +5,8 @@ date:   2016-06-10 07:02:01
 categories: tech
 ---
 
+### Note: updated on 2016-10-24
+
 Unsupervised learning is the Holy Grail of Deep Learning. The goal of unsupervised learning is to create general systems that can be trained with little data. Very little data. 
 
 Today Deep Learning models are trained on large supervised datasets. Meaning that for each data, there is a corresponding label. In the case of the popular ImageNet dataset, there are 1M images labeled by humans. 1000 images for each of the 1000 classes. It can take some effort to create such dataset, many months of work. Imagine now creating a dataset with 1M classes. Imagine having to label each frame of a video dataset, with 100M frames. This is not scalable.
@@ -34,7 +36,24 @@ Auto-encoders methods are also called "direct-mapping" methods.
 
 
 
-# Stacked unsupervised layers
+# Auto-encoders / sparse-coding / stacked auto-encoders advantages and disadvantages
+
+Advantages:
+
+- simple technique: reconstruct input
+- multiple layer can be stacked
+- intuitive and based on neuroscience research
+
+Disadvantages:
+
+- each layer is trained greedily
+- no global optimization
+- does not match performance of supervised learning
+- multiple layer ineffective
+- reconstruction of input may not be ideal metric for learning a general-purpose representation
+
+
+# Clustering Learning
 
 
 One technique uses k-means clustering to learn filters at multiple layers. 
@@ -45,6 +64,23 @@ Our work in this area was developed independently to the work of [Adam Coates an
 
 Restricted Boltzmann machines (RBMs), deep Boltzmann
 machines (DBMs), [Deep belief networks (DBNs)](https://www.cs.toronto.edu/~hinton/absps/fastnc.pdf) have been notoriously hard to train because of the numerical difficulties of solving their partition function. As such they have not been used widely to solve problems.
+
+
+
+# Clustering learning advantages and disadvantages:
+
+Advantages:
+
+- simple technique: cluster similar outputs
+- multiple layer can be stacked
+- intuitive and based on neuroscience research
+
+Disadvantages:
+
+- each layer is trained greedily
+- no global optimization
+- in some cases matches performance of supervised learning
+- multiple layer increasingly ineffective == diminishing returns
 
 
 # Generative models
@@ -97,6 +133,20 @@ What I appreciate the most about this work is that the network is using the text
 ![](/assets/unsup/gatnet.jpg)
 
 
+# Generative adversarial model advantages and disadvantages
+
+Advantages:
+
+- global training of entire network
+- simple to code and implement
+
+Disadvantages:
+
+- hard to train, conversion problems
+- in some cases matches performance of supervised learning
+- need to prove usability of representation (a problem of ALL unsupervised algorithms)
+
+
 # Learn-from-data models
 
 These models learn directly from unlabeled data, by devising unsupervised learning tasks that do not require labels, and learning aims at solving the task.
@@ -119,6 +169,21 @@ Another paper (MIT: Vondrick, Torralba) using videos with very compelling result
 ![](/assets/unsup/mitvideonet.jpg)
 
 
+# PredNet
+
+PredNet is a network designed to predict future frames in video. See great examples here:
+https://coxlab.github.io/prednet/
+
+PredNet is a very clever neural network model that in our opinion will have a major role in the future of neural networks. PredNet learns a neural representation that extends beyond the single frames of supervised CNN.
+
+PredNet combine bio-inspired bi-directional [models of the human brain] (https://papers.nips.cc/paper/1083-unsupervised-pixel-prediction.pdf). It uses [predictive coding](http://www.nature.com/neuro/journal/v2/n1/full/nn0199_79.html) and using [feedback connections in neural models] (http://arxiv.org/abs/1608.03425). This is the PredNet module and example of 2 stacked layer:
+![](/assets/unsup/prednet.jpg)
+
+This model also has the following advantages:
+
+- uses unlabeled data to train!
+- embedded loss function computing error at each layer
+- ability to perform online-learning by monitoring the error signal: when it is not able to predict an output, it knows it needs to learn it
 
 
 # The future
