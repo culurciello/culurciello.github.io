@@ -1,7 +1,8 @@
 ---
 layout: post
-title:  "Neural Network Architectures"
-date:   2016-06-04 09:05:21
+title: "Neural Network Architectures"
+date: 2016-10-24 21:05:21
+updated-from:	2016-06-04 09:05:21
 categories: tech
 ---
 
@@ -210,6 +211,20 @@ A systematic evaluation of CNN modules [has been presented](https://arxiv.org/ab
 • use mini-batch size around 128 or 256. If this is too big for your GPU, decrease the learning rate proportionally to the batch size.
 • use fully-connected layers as convolutional and average the predictions for the final decision.• when investing in increasing training set size, check if a plateau has not been reach.• cleanliness of the data is more important then the size.• if you cannot increase the input image size, reduce the stride in the con-sequent layers, it has roughly the same effect.• if your network has a complex and highly optimized architecture, like e.g.GoogLeNet, be careful with modifications.
 
+
+# Xception
+
+[Xception](https://arxiv.org/abs/1610.02357) improves on the inception module and architecture with a simple and more elegant architecture that is as effective as ResNet and Inception V4.
+
+The Xception module is based on TensorFlow module [separable_conv2d](https://www.tensorflow.org/versions/r0.11/api_docs/python/nn.html#separable_conv2d) and is represented here:
+
+![](/assets/nets/xception.jpg)
+
+The network architecture is very easily readable and comprehensible, a big step forward from Inception V4. This network can be anyone's favourite given the simplicity and elegance. The architecture is presented here:
+
+![](/assets/nets/xception-net.jpg)
+
+An implementation in Keras/TF is [available here](https://keras.io/applications/#xception).
 
 
 # Other notable architectures
