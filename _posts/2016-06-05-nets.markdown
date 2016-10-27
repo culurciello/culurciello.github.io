@@ -11,6 +11,14 @@ Deep neural networks and Deep Learning are powerful and popular algorithms. And 
 
 I wanted to revisit the history of neural network design in the last few years and in the context of Deep Learning.
 
+For a more in-depth analysis and comparison of all the networks reported here, please see our [recent article](https://arxiv.org/abs/1605.07678). One representative figure from this article is here:
+
+![](/assets/nets/acc_vs_net_vs_ops.svg)
+
+Reporting top-1 one-crop accuracy versus amount of operations required for a single forward pass in multiple popular neural network architectures.
+
+
+
 # LeNet5
 It is the year 1994, and this is one of the very first convolutional neural networks, and what propelled the field of Deep Learning. This pioneering work by Yann LeCun was named [LeNet5](http://yann.lecun.com/exdb/publis/pdf/lecun-01a.pdf) after many previous successful iterations since they year 1988! 
 
