@@ -217,16 +217,21 @@ A systematic evaluation of CNN modules [has been presented](https://arxiv.org/ab
 
 [Xception](https://arxiv.org/abs/1610.02357) improves on the inception module and architecture with a simple and more elegant architecture that is as effective as ResNet and Inception V4.
 
-The Xception module is based on TensorFlow module [separable_conv2d](https://www.tensorflow.org/versions/r0.11/api_docs/python/nn.html#separable_conv2d) and is represented here:
+The Xception module is presented here:
 
 ![](/assets/nets/xception.jpg)
 
-The network architecture is very easily readable and comprehensible, a big step forward from Inception V4. This network can be anyone's favourite given the simplicity and elegance. The architecture is presented here:
+This network can be anyone's favorite given the simplicity and elegance of the architecture, presented here:
 
 ![](/assets/nets/xception-net.jpg)
 
-An implementation in Keras/TF is [available here](https://keras.io/applications/#xception).
+The architecture has 36 convolutional stages, making it close in similarity to a ResNet-34. But the model and code is as simple as ResNet and much more comprehensible than Inception V4.
 
+A Torch7 implementation of this network is available [here](https://gist.github.com/culurciello/554c8e56d3bbaf7c66bf66c6089dc221)
+An implementation in Keras/TF is availble [here](https://keras.io/applications/#xception).
+
+
+It is interesting to note that the recent Xception architecture was also inspired by [our work on separable convolutional filters](https://arxiv.org/abs/1412.5474).
 
 # Other notable architectures
 
