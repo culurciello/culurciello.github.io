@@ -7,6 +7,10 @@ categories: tech
 
 Training a novel network on the [ImageNet dataset](http://image-net.org/challenges/LSVRC/2012/index) can be tricky. Here are some guidelines to make your model train faster and help you design better models.
 
+For a more in-depth analysis and comparison of all the networks record-winners on ImageNet, please see our [recent article](https://arxiv.org/abs/1605.07678). One representative figure from this article is here:
+
+![](/assets/nets/acc_vs_net_vs_ops.svg)
+
 This work is based on the model in our recent paper [ENet: A Deep Neural Network Architecture for Real-Time Semantic Segmentation](https://arxiv.org/abs/1606.02147). ENet network model is given [here](https://github.com/e-lab/ENet-training/blob/master/train/models/encoder.lua).
 
 An easy way to train a neural network model on ImageNet is to use [Torch7](http://torch.ch/) and [this training script](https://github.com/soumith/imagenet-multiGPU.torch) from [Soumith Chintala](https://github.com/soumith). Another great training script, also deriving from this one, is [here](https://github.com/facebook/fb.resnet.torch).
@@ -387,6 +391,10 @@ The best ENet gave a 68.4% (V12) accuracy on test set. ResNet 18 is 69.5% and Re
 ResNet 18 uses a total of 3.6 G-Ops on a 224x224 input image. ENet 1.6 G-ops on the same image. And on a 960x540 input image ResNet 18 uses 38 G-Ops, while ENet uses 16.9 G-ops on the same image. 
 
 This means ENet is 2.24x more efficient that ResNet 18.
+
+![](/assets/nets/acc_dens_vs_net.svg)
+
+As you can see in this figure ENet has the highest accuracy per parameter used of any neural network out there!
 
 
 
