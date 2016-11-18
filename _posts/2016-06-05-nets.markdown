@@ -207,6 +207,11 @@ Our team set up to combine all the features of the recent architectures into a v
 
 [The technical report on ENet is available here](https://arxiv.org/abs/1606.02147). ENet is a encoder plus decoder network. The encoder is a regular CNN design for categorization, while the decoder is a upsampling network designed to propagate the categories back into the original image size for segmentation. This worked used only neural networks, and no other algorithm to perform image segmentation.
 
+
+![](/assets/nets/acc_dens_vs_net.svg)
+
+As you can see in this figure ENet has the highest accuracy per parameter used of any neural network out there!
+
 ENet was designed to use the minimum number of resources possible from the start. As such it achieves such a small footprint that both encoder and decoder network together only occupies 0.7 MB with fp16 precision. 
 Even at this small size, ENet is similar or above other pure neural network solutions in accuracy of segmentation.
 
