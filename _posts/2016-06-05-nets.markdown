@@ -5,5 +5,5 @@ date: 2016-06-04 09:05:21
 categories: tech
 ---
 
-### Note: moved to: https://medium.com/towards-data-science/neural-network-architectures-156e5bad51ba
+# [moved here](https://medium.com/towards-data-science/neural-network-architectures-156e5bad51ba)
 

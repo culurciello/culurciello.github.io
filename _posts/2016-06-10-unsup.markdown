@@ -5,4 +5,4 @@ date:   2016-06-10 07:02:01
 categories: tech
 ---
 
-### Note: moved to: https://medium.com/@culurciello/navigating-the-unsupervised-learning-landscape-951bd5842df9
+# [moved here](https://medium.com/@culurciello/navigating-the-unsupervised-learning-landscape-951bd5842df9)
