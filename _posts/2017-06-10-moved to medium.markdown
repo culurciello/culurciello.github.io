@@ -1,1 +1,0 @@
-This blog site has moved to [Medium](https://medium.com/@culurciello/) - Please follow us there!

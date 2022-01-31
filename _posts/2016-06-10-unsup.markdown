@@ -1,8 +1,0 @@
----
-layout: post
-title:  "Navigating the unsupervised learning landscape"
-date:   2016-06-10 07:02:01
-categories: tech
----
-
-# [moved here](https://medium.com/@culurciello/navigating-the-unsupervised-learning-landscape-951bd5842df9)

@@ -1,1 +1,0 @@
-Check out [LinkNet, our new neural network for autonomous vehicles](https://codeac29.github.io/projects/linknet/index.html) - very efficient network and very good accuracy in one simple solution. By Abhishek Chaurasia!

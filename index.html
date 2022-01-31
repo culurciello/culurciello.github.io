@@ -1,27 +1,251 @@
----
-layout: default
----
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+	<!-- Website Title -->
+    <title>Eugenio Culurciello - tech dreamer</title>
+    <!-- Bootstrap -->
+    <link href="assets/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+	<!-- Font-Awesome -->
+    <link href="assets/font-awesome/css/font-awesome.min.css" rel="stylesheet">
+	<!-- Lightbox -->
+	<link href="assets/lightbox/css/lightbox.css" rel="stylesheet">
+    <!-- Text Rotator-->
+	<link href="assets/textrotator/simpletextrotator.css" rel="stylesheet">
+	<!-- FlexSlider -->
+    <link href="assets/flexslider/flexslider.css" rel="stylesheet">
+	<!-- Theme Style -->
+    <link href="css/style.css" rel="stylesheet">
+	<!-- Animations -->
+    <link href="css/animate.css" rel="stylesheet">
+	<!-- Custom Favicon -->
+	<link href="img/favicon.ico" rel="shortcut icon" type="image/x-icon" /> 
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+    <script src="assets/html5shiv/html5shiv.js"></script>
+    <script src="assets/respond/respond.min.js"></script>
+    <![endif]-->
+  </head>
 
-<head> 
-  <meta charset="utf-8">
-</head> 
 
-<div class="home">
+  <!-- /* COLOR PALETTE CSS HEX */
+  --imperial-red: #e63946ff;
+  --honeydew: #f1faeeff;
+  --powder-blue: #a8dadcff;
+  --celadon-blue: #457b9dff;
+  --prussian-blue: #1d3557ff; -->
 
-  <h1 class="page-heading">Posts</h1>
+    <body id="top">
 
-  <ul class="post-list">
-    {% for post in site.posts %}
-      <li>
-        <span class="post-meta">{{ post.date | date: "%b %-d, %Y" }}</span>
+      <!-- ****************************** Preloader ************************** -->
+      <div id="preloader"></div>
 
-        <h2>
-          <a class="post-link" href="{{ post.url | prepend: site.baseurl }}">{{ post.title }}</a>
-        </h2>
-      </li>
-    {% endfor %}
-  </ul>
 
-  <p class="rss-subscribe">subscribe <a href="{{ "/feed.xml" | prepend: site.baseurl }}">via RSS</a></p>
+	  	<!-- ==========================
+        HEADER SECTION 
+        =========================== -->
+        <header id="home">
+		    <!-- creative menu -->
+            <div class="container-fluid">
+              <div class="row">
+                <div class="menu-wrap">
+				<nav class="menu">
+				    <!-- Menu Links -->
+					<div class="icon-list">
+						<a href="index.html#home"><i class="fa fa-fw fa-home"></i><span>Home</span></a>
+						<!-- <a href="index.html#about"><i class="fa fa-fw fa-quote-left"></i><span>About</span></a> -->
+						<!-- <a href="index.html#service"><i class="fa fa-fw fa-globe"></i><span>Service</span></a> -->
+						<!-- <a href="index.html#portfolio"><i class="fa fa-fw fa-picture-o"></i><span>Portfolio</span></a> -->
+						<!-- <a href="index.html#blog"><i class="fa fa-fw fa-rss"></i><span>Blog</span></a> -->
+						<!-- <a href="index.html#contact"><i class="fa fa-fw fa-envelope-o"></i><span>Contact</span></a> -->
+					</div>
+				</nav>
+			    </div>
+			    <button class="menu-button" id="open-button"></button><!-- menu button -->
+              </div><!--/row-->
+            </div><!--/container-->
+		  <!-- Header Image -->
+          <section class="hero" id="hero">
+            <div class="container">
+			  <!-- Slider Button (don't edit!)-->
+              <div class="row">
+                <div class="col-md-12 text-right navicon">
+                  <a id="nav-toggle" class="nav_slide_button" href="index.html#"><span></span></a>
+                </div>
+              </div>
+			  <!-- HEADER HEADLINE -->
+              <div class="row">
+                <div class="col-md-8 col-md-offset-1 inner">
+                  <h1 class="animated fadeInDown">
+                    <span>C<span style="color:#94d2bd">u</span>lurciello</span>
+                    E<span style="color:#ee9b00;">u</span>genio<br/>
+                  </h1><!-- Title -->
+                  <h3 class="animated fadeInUp delay-05s"><span class="rotate">Tech Dreamer,Entrepeneur,Inventor,Professor</span></h3><!-- Text Rotator -->
+                </div>
+              </div>
+			  <!-- Learn More Button -->
+              <div class="row">
+                <div class="col-md-6 col-md-offset-3 text-center">
+                  <a href="index.html#about" class="scrollto wow fadeInUp delay-5s ">
+			             <!-- <p>SEE MORE</p> -->
+			             <p class="scrollto--arrow"><img src="img/scroll-down.png" alt="scroll down arrow"></p>
+			            </a>
+                </div>
+              </div>
+            </div>
+          </section>
+		  <!-- Header Image End -->
+        </header>
+		<!-- ==========================
+        HEADER SECTION END  
+        =========================== -->
+		
+		
+		
+		
+		<!-- ==========================
+        ABOUT SECTION  
+        =========================== -->
+        <section class="intro text-center section-padding color-bg" id="about">
+          <div class="container">
+		    <!-- WELCOME TEXT -->
+            <div class="row">
+              <div class="col-md-8 col-md-offset-2 wp1">
+                <h1 class="arrow">A little <span>about</span> me</h1><!-- Headline -->
+				<!-- about / welcome text -->
+                <p>
+                  
+                  An entrepreneur at heart, I have been a <a href="https://e-lab.github.io/">professor</a>, <a href="https://medium.com/@culurciello/">a writer</a>, a <a href="https://www.linkedin.com/in/eugenioculurciello/">cog</a>.
 
-</div>
+                  As an entrepreneur, I founded TeraDeep and FWDNXT. FWDNXT was acquired by Micron Inc. in 2019 for our deep neural network processors.
+
+                  As a writer, I follow the development of the tech world and focus on the ripples rather than the bubbles. I focus on new applications of artificial intelligence that can propel humanity.
+ 
+                  As a university professor at Yale and Purdue I have worked on <a href="https://e-lab.github.io/html/research-intelligent-vision-systems.html">Intelligent Vision Systems</a>, <a href="https://www.amazon.com/Biomedical-Circuits-Systems-Eugenio-Culurciello/dp/1304422976">Biomedical Circuits and Systems</a>, <a href="https://www.amazon.com/Silicon-Sapphire-Circuits-Systems-Interfaces-ebook/dp/B002R0JXCM">Silicon-on-Sapphire Circuits and Systems</a>. My PhD from Johns Hopkins University was on the topic of analog and mixed-signal microchip design for neuromorphic applications. I was one of the pioneers in <a href="https://ieeexplore.ieee.org/document/1175509">spike-based imaging</a>.
+
+                  My Bio is <a href="docs/bio.pdf">here</a>, my CV is <a href="docs/EugenioCulurciello_CV.pdf">here</a>.
+
+                </p>
+
+
+              </div>
+            </div>
+          </div>
+        </section>
+
+
+    
+    <!-- ==========================
+        PORTFOLIO SECTION
+    =========================== -->
+        <section class="swag text-center" id="portfolio">
+          
+          <h1 class="arrow">
+            <a href="https://e-lab.github.io/html/research.html"> Neural Networks <span>Projects</span></a>
+          </h1>
+
+          <video width="100%" autoplay>
+            <source src="img/nn.mp4" type="video/mp4"> Your browser does not support the video tag.
+          </video>
+ 
+          <h1 class="arrow">
+            <a href="https://e-lab.github.io/html/research.html"> Micro-Chip <span>Projects</span></a>
+          </h1>
+
+          <video width="100%" autoplay>
+            <source src="img/chips.mp4" type="video/mp4"> Your browser does not support the video tag.
+          </video>
+
+
+        </section>
+
+    <!-- ==========================
+        PORTFOLIO SECTION END
+        =========================== -->
+		
+
+
+      
+    <!-- ==========================
+        CUSTOM SPACER
+        =========================== -->
+    <div class="spacer-cta text-center">
+          <div class="container">
+            <div class="row">
+              <div class="col-md-12">
+                <a href="index.html#contact" class="outline-btn"> I am always interested in brainstorming: let us have fun together!</a>
+              </div>
+            </div>
+          </div>
+        </div>
+    <!-- ==========================
+        CUSTOM SPACER END
+        =========================== -->
+
+
+		
+		<!-- ==========================
+        FOOTER SECTION
+        =========================== -->
+        <footer>
+          <div class="container">
+            <!-- Social Buttons - use font-awesome, past in what you want -->
+            <div class="row">
+              <div class="col-md-12">
+                <ul class="social-buttons">
+                  <li><a href="https://e-lab.github.io/" class="social-btn"><i class="fa fa-dribbble"></i></a></li><!-- dribble -->
+                  <li><a href="https://medium.com/@culurciello/" class="social-btn"><i class="fa fa-medium"></i></a></li><!-- twitter -->
+                  <li><a href="https://www.linkedin.com/in/eugenioculurciello/" class="social-btn"><i class="fa fa-linkedin"></i></a></li><!-- facebook -->
+                </ul>
+              </div>
+            </div>
+
+
+            <div class="row">
+              <div class="col-md-12 text-center">
+                <!-- <p>All Rights Reserved. &copy; 2022 <a href="http://www.themewagon.com">ThemeWagon</a> -->
+              </div>
+            </div>
+          </div>
+        </footer>
+		<!-- ==========================
+        FOOTER SECTION END
+        =========================== -->		
+		
+		
+    <!-- jQuery -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+    <!-- SmoothScroll -->           
+    <script type="text/javascript" src="assets/smoothscroll/smoothscroll.js"></script>
+    <!-- Bootstrap -->
+    <script src="assets/bootstrap/js/bootstrap.min.js"></script>
+	<!-- Waypoints -->
+	<script src="js/waypoints.min.js"></script>
+    <!-- classie.js -->
+	<script src="js/classie.js"></script>
+    <!-- FlexSlider -->
+    <script src="assets/flexslider/jquery.flexslider.js"></script>
+	<!-- Modernizr -->
+    <script src="js/modernizr.js"></script>
+	<!-- Text Rotator -->
+	<script src="assets/textrotator/jquery.simple-text-rotator.js"></script>
+	<!-- Lightbox.js -->
+    <script src="assets/lightbox/js/lightbox.min.js"></script>
+	<!-- Theme JavaScript Core -->
+	<script src="js/main.js"></script>
+	<script src="js/script.js"></script>
+	
+	<!-- TEXT ROTATOR SETTINGS -->
+    <script type="text/javascript">
+    $(".rotate").textrotator({
+      animation: "fade", // You can pick the way it animates when rotating through words. Options are dissolve (default), fade, flip, flipUp, flipCube, flipCubeUp and spin.
+      separator: ",", // If you don't want commas to be the separator, you can define a new separator (|, &, * etc.) by yourself using this field.
+      speed: 2000 // How many milliseconds until the next word show.
+    });
+    </script>
+	
+    </body>
+</html>
