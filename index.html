@@ -40,6 +40,9 @@
 
     <body id="top">
 
+      <!-- particles.js container --> 
+      <!-- <div id="particles-js"></div> -->
+
       <!-- ****************************** Preloader ************************** -->
       <div id="preloader"></div>
 
@@ -52,23 +55,24 @@
             <div class="container-fluid">
               <div class="row">
                 <div class="menu-wrap">
-				<nav class="menu">
-				    <!-- Menu Links -->
-					<div class="icon-list">
-						<a href="index.html#home"><i class="fa fa-fw fa-home"></i><span>Home</span></a>
-						<!-- <a href="index.html#about"><i class="fa fa-fw fa-quote-left"></i><span>About</span></a> -->
-						<!-- <a href="index.html#service"><i class="fa fa-fw fa-globe"></i><span>Service</span></a> -->
-						<!-- <a href="index.html#portfolio"><i class="fa fa-fw fa-picture-o"></i><span>Portfolio</span></a> -->
-						<!-- <a href="index.html#blog"><i class="fa fa-fw fa-rss"></i><span>Blog</span></a> -->
-						<!-- <a href="index.html#contact"><i class="fa fa-fw fa-envelope-o"></i><span>Contact</span></a> -->
-					</div>
-				</nav>
-			    </div>
-			    <button class="menu-button" id="open-button"></button><!-- menu button -->
+          				<nav class="menu">
+          				    <!-- Menu Links -->
+          					<div class="icon-list">
+          						<a href="index.html#home"><i class="fa fa-fw fa-home"></i><span>Home</span></a>
+          						<!-- <a href="index.html#about"><i class="fa fa-fw fa-quote-left"></i><span>About</span></a> -->
+          						<!-- <a href="index.html#service"><i class="fa fa-fw fa-globe"></i><span>Service</span></a> -->
+          						<a href="index.html#portfolio"><i class="fa fa-fw fa-picture-o"></i><span>Portfolio</span></a>
+          						<!-- <a href="index.html#blog"><i class="fa fa-fw fa-rss"></i><span>Blog</span></a> -->
+          						<a href="index.html#contact"><i class="fa fa-fw fa-envelope-o"></i><span>Contact</span></a>
+          					</div>
+          				</nav>
+			         </div>
+			         <button class="menu-button" id="open-button"></button><!-- menu button -->
               </div><!--/row-->
             </div><!--/container-->
 		  <!-- Header Image -->
           <section class="hero" id="hero">
+            <div id="particles-js"></div>
             <div class="container">
 			  <!-- Slider Button (don't edit!)-->
               <div class="row">
@@ -77,7 +81,10 @@
                 </div>
               </div>
 			  <!-- HEADER HEADLINE -->
+
               <div class="row">
+                <!-- particles.js container --> 
+                  <!-- <div id="particles-js"></div> -->
                 <div class="col-md-8 col-md-offset-1 inner">
                   <h1 class="animated fadeInDown">
                     <span>C<span style="color:#94d2bd">u</span>lurciello</span>
@@ -88,7 +95,7 @@
               </div>
 			  <!-- Learn More Button -->
               <div class="row">
-                <div class="col-md-6 col-md-offset-3 text-center">
+                <div class="col-md-12 col-md-offset-3 text-center">
                   <a href="index.html#about" class="scrollto wow fadeInUp delay-5s ">
 			             <!-- <p>SEE MORE</p> -->
 			             <p class="scrollto--arrow"><img src="img/scroll-down.png" alt="scroll down arrow"></p>
@@ -102,7 +109,22 @@
 		<!-- ==========================
         HEADER SECTION END  
         =========================== -->
-		
+
+    <!-- ==========================
+        CUSTOM SPACER
+        =========================== -->
+    <div class="spacer-cta text-center">
+          <div class="container">
+            <div class="row">
+              <div class="col-md-12">
+                <!-- <a href="index.html#contact" class="outline-btn"> I am always interested in brainstorming: let us have fun together!</a> -->
+              </div>
+            </div>
+          </div>
+        </div>
+    <!-- ==========================
+        CUSTOM SPACER END
+        =========================== -->
 		
 		
 		
@@ -191,7 +213,7 @@
         FOOTER SECTION
         =========================== -->
         <footer>
-          <div class="container">
+          <div class="container" id="contact">
             <!-- Social Buttons - use font-awesome, past in what you want -->
             <div class="row">
               <div class="col-md-12">
@@ -216,27 +238,29 @@
         =========================== -->		
 		
 		
-    <!-- jQuery -->
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
-    <!-- SmoothScroll -->           
-    <script type="text/javascript" src="assets/smoothscroll/smoothscroll.js"></script>
-    <!-- Bootstrap -->
-    <script src="assets/bootstrap/js/bootstrap.min.js"></script>
+  <!-- jQuery -->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+  <!-- SmoothScroll -->           
+  <script type="text/javascript" src="assets/smoothscroll/smoothscroll.js"></script>
+  <!-- Bootstrap -->
+  <script src="assets/bootstrap/js/bootstrap.min.js"></script>
 	<!-- Waypoints -->
 	<script src="js/waypoints.min.js"></script>
     <!-- classie.js -->
 	<script src="js/classie.js"></script>
-    <!-- FlexSlider -->
-    <script src="assets/flexslider/jquery.flexslider.js"></script>
+  <!-- FlexSlider -->
+  <script src="assets/flexslider/jquery.flexslider.js"></script>
 	<!-- Modernizr -->
-    <script src="js/modernizr.js"></script>
+  <script src="js/modernizr.js"></script>
 	<!-- Text Rotator -->
 	<script src="assets/textrotator/jquery.simple-text-rotator.js"></script>
 	<!-- Lightbox.js -->
-    <script src="assets/lightbox/js/lightbox.min.js"></script>
-	<!-- Theme JavaScript Core -->
+  <!-- <script src="assets/lightbox/js/lightbox.min.js"></script> -->
+	<!-- Particles JS https://github.com/VincentGarreau/particles.js/ -->
+  <script src="js/particles.js"></script>
+  <!-- Theme JavaScript Core -->
 	<script src="js/main.js"></script>
-	<script src="js/script.js"></script>
+
 	
 	<!-- TEXT ROTATOR SETTINGS -->
     <script type="text/javascript">
