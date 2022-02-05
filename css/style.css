@@ -465,11 +465,11 @@ table {
 	background-color: #FBFBFB;
 }
 .hero h1 {
-	font-size: 100px;
+	font-size: 70px;
 	letter-spacing: -8px;
 	margin: 0;
 	font-weight: 300;
-	line-height: 95px;
+	line-height: 60px;
 	text-transform: uppercase;
 }
 .hero h1 span {
